@@ -1,0 +1,60 @@
+.root {
+  position: relative;
+}
+.form_container {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba($color: #000000, $alpha: 0.5);
+}
+.form {
+  background: antiquewhite;
+  padding: 40px;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  gap: 30px;
+}
+.form_items_wrapper {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.form_item {
+  display: flex;
+  flex-direction: column;
+  &:last-child {
+    grid-column: span 2;
+    textarea {
+      height: 100px;
+    }
+  }
+}
+
+.input {
+  min-width: 250px;
+  height: 60px;
+
+  font-size: 25px;
+}
+
+.subBtn {
+  width: 150px;
+  height: 40px;
+}
