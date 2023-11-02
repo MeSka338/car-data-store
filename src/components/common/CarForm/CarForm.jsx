@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { AddCarAction } from "@/actions/CarActions";
 
 import s from "./CarForm.module.scss";
+import clsx from "clsx";
 
 const body = [
   "Седан",
@@ -54,7 +55,7 @@ const CarForm = ({ isFormOpen, setIsFormOpen }) => {
     <div className={s.form_container}>
       <form className={s.form} onSubmit={HandleSubmit}>
         <button
-          className={s.closeBtn}
+          className={clsx(s.closeBtn, s.btn)}
           type="button"
           onClick={() => setIsFormOpen(!isFormOpen)}
         >
