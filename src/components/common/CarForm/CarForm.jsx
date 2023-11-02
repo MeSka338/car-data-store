@@ -1,7 +1,42 @@
-import React, { useState, useEffect } from "react";
-import s from "./CarForm.module.scss";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { AddCarAction, UpdateLocal } from "@/actions/CarActions";
+import { AddCarAction } from "@/actions/CarActions";
+
+import s from "./CarForm.module.scss";
+
+const body = [
+  "Седан",
+  "Лимузин",
+  "Пикап",
+  "Хэтчбек",
+  "Универсал",
+  "Лифтбек",
+  "Минивэн",
+  "Купе",
+  "Кабриолет",
+  "Лифтбек",
+  "Родстер",
+  "Тарга",
+];
+
+const colors = [
+  "Черный",
+  "Серебро",
+  "Белый",
+  "Серый",
+  "Синий",
+  "Красный",
+  "Зеленый",
+  "Коричневый",
+  "Бежевый",
+  "Голубой",
+  "Золотистый",
+  "Желтый",
+  "Фиолетовый",
+  "Оранжквый",
+  "Розовый",
+];
+
 const CarForm = ({ isFormOpen, setIsFormOpen }) => {
   const [newItem, setNewItem] = useState({});
   const dispatch = useDispatch();
@@ -45,17 +80,9 @@ const CarForm = ({ isFormOpen, setIsFormOpen }) => {
               onChange={HandleChange}
             >
               <option value="DEFAULT" disabled selected hidden></option>
-              <option value="Седан">Седан</option>
-              <option value="Лимузин">Лимузин</option>
-              <option value="Пикап">Пикап</option>
-              <option value="Хэтчбек">Хэтчбек</option>
-              <option value="Универсал">Универсал</option>
-              <option value="Лифтбек">Лифтбек</option>
-              <option value="Минивэн">Минивэн</option>
-              <option value="Купе">Купе</option>
-              <option value="Кабриолет">Кабриолет</option>
-              <option value="Родстер">Родстер</option>
-              <option value="Тарга">Тарга</option>
+              {body.map((item) => {
+                return <option value={item}>{item}</option>;
+              })}
             </select>
           </div>
           <div className={s.form_item}>
@@ -81,21 +108,9 @@ const CarForm = ({ isFormOpen, setIsFormOpen }) => {
             >
               <option value="DEFAULT" disabled selected hidden></option>
 
-              <option value="Черный">Черный</option>
-              <option value="Серебро">Серебро</option>
-              <option value="Белый">Белый</option>
-              <option value="Серый">Серый</option>
-              <option value="Синий">Синий</option>
-              <option value="Красный">Красный</option>
-              <option value="Зеленый">Зеленый</option>
-              <option value="Коричневый">Коричневый</option>
-              <option value="Бежевый">Бежевый</option>
-              <option value="Голубой">Голубой</option>
-              <option value="Золотистый">Золотистый</option>
-              <option value="Желтый">Желтый</option>
-              <option value="Фиолетовый">Фиолетовый</option>
-              <option value="Оранжквый">Оранжквый</option>
-              <option value="Розовый">Розовый</option>
+              {colors.map((item) => {
+                return <option value={item}>{item}</option>;
+              })}
             </select>
           </div>
           <div className={s.form_item}>
