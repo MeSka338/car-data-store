@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CardPreview from "../CardsPreview/CardPreview";
+import clsx from "clsx";
 import s from "./Card.module.scss";
 
 const Card = ({ car, id }) => {
@@ -32,7 +33,7 @@ const Card = ({ car, id }) => {
             <p>{car.country}</p>
           </div>
         </div>
-        <button className={s.showBtn} onClick={HnadleClick}>
+        <button className={clsx(s.showBtn, s.btn)} onClick={HnadleClick}>
           <img src="eye.svg" alt="eye" />
         </button>
       </div>
