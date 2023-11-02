@@ -45,11 +45,8 @@ const CardPreview = ({ car, setClick }) => {
           </div>
 
           <div className={s.previw_description_item}>
-            <p className={s.previw_description_item_title}>
-              {" "}
-              Обьем двигателя:{" "}
-            </p>
-            <p> {car.eng} </p>
+            <p className={s.previw_description_item_title}>Обьем двигателя:</p>
+            <p> {car.eng}</p>
           </div>
 
           <div className={s.previw_description_item}>
