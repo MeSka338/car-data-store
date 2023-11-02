@@ -1,6 +1,7 @@
 import Head from "next/head";
 import HomePage from "@/components/pages/HomePage";
 import { Provider } from "react-redux";
+
 import store from "@/store";
 export default function Home() {
   return (
