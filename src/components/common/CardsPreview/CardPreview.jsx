@@ -55,7 +55,9 @@ const CardPreview = ({ car, setClick }) => {
           <div className={s.previw_description_item}>
             <p className={s.previw_description_item_title}> Описание: </p>
             <div>
-              {car.description.split(" ").slice(0, 20).join(" ") + "..."}
+              {car.description.split(" ").length < 20
+                ? car.description
+                : car.description.split(" ").slice(0, 20).join(" ") + "..."}
             </div>
           </div>
         </div>
