@@ -1,11 +1,13 @@
 import React from "react";
+import clsx from "clsx";
+
 import s from "./CardPreview.module.scss";
 const CardPreview = ({ car, setClick }) => {
   return (
     <div className={s.preview}>
       <div className={s.preview_window}>
         <button
-          className={s.closeBtn}
+          className={clsx(s.closeBtn, s.btn)}
           onClick={() => {
             setClick(false);
           }}
