@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import CardPreview from "../CardsPreview/CardPreview";
+import EditCarForm from "../EditCarForm/EditCarForm";
+
 import clsx from "clsx";
 import s from "./Card.module.scss";
 
 const Card = ({ car, id }) => {
   const [click, setClick] = useState(false);
+  const [isEdit, setIsEdit] = useState(false);
+
   const HnadleClick = () => {
     setClick((prev) => !prev);
   };
   return (
     <>
       {click && <CardPreview car={car} setClick={setClick} />}
-
+      {isEdit && <EditCarForm car={car} index={id} setIsEdit={setIsEdit} />}
       <div className={s.root}>
         <h3 className={s.title}>{car.name}</h3>
 
@@ -33,9 +37,17 @@ const Card = ({ car, id }) => {
             <p>{car.country}</p>
           </div>
         </div>
-        <button className={clsx(s.showBtn, s.btn)} onClick={HnadleClick}>
-          <img src="eye.svg" alt="eye" />
-        </button>
+        <div className={s.btnWrapper}>
+          <button
+            className={clsx(s.editBtn, s.btn)}
+            onClick={() => setIsEdit(true)}
+          >
+            <img src="edit.svg" alt="eye" />
+          </button>
+          <button className={clsx(s.showBtn, s.btn)} onClick={HnadleClick}>
+            <img src="eye.svg" alt="eye" />
+          </button>
+        </div>
       </div>
     </>
   );
