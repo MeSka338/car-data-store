@@ -1,13 +1,49 @@
+.root_wrapper {
+  padding: 0 30px;
+  margin-top: 50px;
+}
+
 .root {
   width: 100%;
   display: flex;
 
   justify-content: center;
-  padding: 0 30px;
 
   margin-top: 50px;
 }
+.search_wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 
+.search {
+  max-width: 400px;
+  // height: 30px;
+  width: 100%;
+
+  font-size: 25px;
+
+  padding: 5px 10px;
+
+  background: #000;
+
+  border: 1px solid gray;
+
+  border-radius: 10px;
+
+  color: inherit;
+  transition: all 0.2s linear;
+  &:hover {
+    box-shadow: 0px 0px 30px rgb(93 132 237);
+    border: 1px solid rgb(93 132 237);
+  }
+
+  &:focus {
+    box-shadow: 0px 0px 30px rgb(93 132 237);
+    border: 1px solid rgb(93 132 237);
+  }
+}
 .container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

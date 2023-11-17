@@ -6,7 +6,7 @@ export const AddCarAction = (newCar) => (dispatch, getState) => {
     type: "ADD_CAR",
     payload: [...cars, { ...newCar, id: Date.now() }],
   });
-  localStorage.setItem("cars", JSON.stringify([newCar, ...cars]));
+  localStorage.setItem("cars", JSON.stringify([...cars, newCar]));
 };
 
 export const EditCars = (editCar) => ({
