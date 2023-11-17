@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { AddCarAction } from "@/actions/CarActions";
+import { EditCars } from "@/actions/CarActions";
 
-import s from "./CarForm.module.scss";
+import s from "./EditCarForm.module.scss";
 import clsx from "clsx";
 
 const body = [
@@ -19,36 +19,34 @@ const body = [
   "Родстер",
   "Тарга",
 ];
-
 const colors = [
-  "Черный",
-  "Серебро",
-  "Белый",
-  "Серый",
-  "Синий",
-  "Красный",
-  "Зеленый",
-  "Коричневый",
-  "Бежевый",
-  "Голубой",
-  "Золотистый",
-  "Желтый",
-  "Фиолетовый",
-  "Оранжквый",
-  "Розовый",
+  "black",
+  "silver",
+  "white",
+  "grey",
+  "blue",
+  "red",
+  "green",
+  "brown",
+  "lightblue",
+  "gold",
+  "yellow",
+  "purple",
+  "orange",
+  "pink",
 ];
 
-const CarForm = ({ isFormOpen, setIsFormOpen }) => {
-  const [newItem, setNewItem] = useState({});
+const EditCarForm = ({ setIsEdit, car, index }) => {
+  const [editItem, setEditItem] = useState({ ...car });
   const dispatch = useDispatch();
 
   const HandleChange = (e) => {
-    setNewItem({ ...newItem, [e.target.name]: e.target.value });
+    setEditItem({ ...editItem, [e.target.name]: e.target.value });
   };
   const HandleSubmit = (e) => {
     e.preventDefault();
-    dispatch(AddCarAction({ ...newItem, id: Date.now() }));
-    setIsFormOpen(false);
+    dispatch(EditCars(editItem));
+    setIsEdit(false);
   };
 
   return (
@@ -57,7 +55,7 @@ const CarForm = ({ isFormOpen, setIsFormOpen }) => {
         <button
           className={clsx(s.closeBtn, s.btn)}
           type="button"
-          onClick={() => setIsFormOpen(!isFormOpen)}
+          onClick={() => setIsEdit(false)}
         >
           <img src="close.svg" alt="close" />
         </button>
@@ -68,6 +66,7 @@ const CarForm = ({ isFormOpen, setIsFormOpen }) => {
               className={s.input}
               name={"name"}
               required
+              value={editItem.name}
               onChange={HandleChange}
             ></input>
           </div>
@@ -75,14 +74,19 @@ const CarForm = ({ isFormOpen, setIsFormOpen }) => {
             <label className={s.input_title}>кузов</label>
             <select
               name="body"
+              value={editItem.body}
               id="cars"
               className={s.input}
               required
               onChange={HandleChange}
             >
               <option value="DEFAULT" disabled selected hidden></option>
-              {body.map((item) => {
-                return <option value={item}>{item}</option>;
+              {body.map((item, key) => {
+                return (
+                  <option value={item} key={key}>
+                    {item}
+                  </option>
+                );
               })}
             </select>
           </div>
@@ -93,6 +97,7 @@ const CarForm = ({ isFormOpen, setIsFormOpen }) => {
               type="number"
               onChange={HandleChange}
               name="year"
+              value={editItem.year}
               required
               min={1885}
               max={2023}
@@ -102,6 +107,7 @@ const CarForm = ({ isFormOpen, setIsFormOpen }) => {
             <label className={s.input_title}>цвет</label>
             <select
               name="color"
+              value={editItem.color}
               id="colors"
               className={s.input}
               required
@@ -109,8 +115,12 @@ const CarForm = ({ isFormOpen, setIsFormOpen }) => {
             >
               <option value="DEFAULT" disabled selected hidden></option>
 
-              {colors.map((item) => {
-                return <option value={item}>{item}</option>;
+              {colors.map((item, key) => {
+                return (
+                  <option value={item} key={key}>
+                    {item}
+                  </option>
+                );
               })}
             </select>
           </div>
@@ -121,6 +131,7 @@ const CarForm = ({ isFormOpen, setIsFormOpen }) => {
               required
               onChange={HandleChange}
               name="price"
+              value={editItem.price}
             ></input>
           </div>
           <div className={s.form_item}>
@@ -130,6 +141,7 @@ const CarForm = ({ isFormOpen, setIsFormOpen }) => {
               required
               onChange={HandleChange}
               name="hp"
+              value={editItem.hp}
             ></input>
           </div>
           <div className={s.form_item}>
@@ -139,6 +151,7 @@ const CarForm = ({ isFormOpen, setIsFormOpen }) => {
               required
               onChange={HandleChange}
               name="eng"
+              value={editItem.eng}
             ></input>
           </div>
           <div className={s.form_item}>
@@ -148,6 +161,7 @@ const CarForm = ({ isFormOpen, setIsFormOpen }) => {
               required
               onChange={HandleChange}
               name="country"
+              value={editItem.country}
             ></input>
           </div>
           <div className={s.form_item}>
@@ -157,15 +171,18 @@ const CarForm = ({ isFormOpen, setIsFormOpen }) => {
               required
               onChange={HandleChange}
               name="description"
+              value={editItem.description}
             ></textarea>
           </div>
         </div>
-        <button className={s.subBtn} type="submit">
-          Добавить
-        </button>
+        <div className={s.btn_wrapper}>
+          <button className={s.subBtn} type="submit">
+            Изменить
+          </button>
+        </div>
       </form>
     </div>
   );
 };
 
-export default CarForm;
+export default EditCarForm;
