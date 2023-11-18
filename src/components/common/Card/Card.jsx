@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CardPreview from "../CardsPreview/CardPreview";
 import EditCarForm from "../EditCarForm/EditCarForm";
+import Link from "next/link";
 
 import clsx from "clsx";
 import s from "./Card.module.scss";
@@ -17,6 +18,8 @@ const Card = ({ car, id }) => {
       {click && <CardPreview car={car} setClick={setClick} />}
       {isEdit && <EditCarForm car={car} index={id} setIsEdit={setIsEdit} />}
       <div className={s.root}>
+        <Link href={`/cars/${id}`} className={s.link}></Link>
+
         <h3 className={s.title}>{car.name}</h3>
 
         <div className={s.description}>
