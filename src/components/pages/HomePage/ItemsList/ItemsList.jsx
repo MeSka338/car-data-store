@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import s from "./ItemsList.module.scss";
 
 import Card from "../../../common/Card";
-import { UpdateLocal } from "@/actions/CarActions";
+import { GetCars } from "@/actions/CarActions";
 
 const ItemsList = () => {
   const { cars } = useSelector((store) => store.CarReducer);
@@ -12,9 +12,7 @@ const ItemsList = () => {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    if (localStorage.getItem("cars")) {
-      dispatch(UpdateLocal(JSON.parse(localStorage.getItem("cars"))));
-    }
+    dispatch(GetCars());
   }, []);
   return (
     <div className={s.root_wrapper}>

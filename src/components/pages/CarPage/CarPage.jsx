@@ -4,19 +4,16 @@ import s from "./CarPage.module.scss";
 
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
-import { UpdateLocal } from "@/actions/CarActions";
+import { GetCars } from "@/actions/CarActions";
 
 const CarPage = () => {
   const dispatch = useDispatch();
   const { cars } = useSelector((state) => state.CarReducer);
   const index = useRouter().query.index;
 
-  const car = cars[index];
+  const car = cars.find((item) => item.id === Number(index));
   useEffect(() => {
-    if (localStorage.getItem("cars")) {
-      dispatch(UpdateLocal(JSON.parse(localStorage.getItem("cars"))));
-    }
-    console.log(cars);
+    dispatch(GetCars());
   }, []);
 
   return (

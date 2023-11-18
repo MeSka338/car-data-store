@@ -1,5 +1,12 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import axios from "axios";
+export const getCarsApi = async () =>
+  await axios.get("http://localhost:3001/cars");
 
-export default function handler(req, res) {
-  res.status(200).json({ name: 'John Doe' })
-}
+export const addCarsApi = async (car) =>
+  await axios.post("http://localhost:3001/cars", car);
+
+export const editCarsApi = async (editCar) =>
+  await axios.put(`http://localhost:3001/cars/${editCar.id}`, editCar);
+
+export const deleteCarsApi = async (id) =>
+  await axios.delete(`http://localhost:3001/cars/${id}`);
