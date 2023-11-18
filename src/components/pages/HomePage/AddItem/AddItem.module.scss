@@ -1,0 +1,21 @@
+@import "@/styles/commonElements.scss";
+.root {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.title_container {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 30px;
+}
+.addBtn {
+  background: rgb(28 32 42);
+
+  cursor: pointer;
+  padding: 5px;
+}
