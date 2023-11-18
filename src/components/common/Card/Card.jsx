@@ -6,7 +6,7 @@ import Link from "next/link";
 import clsx from "clsx";
 import s from "./Card.module.scss";
 
-const Card = ({ car, id }) => {
+const Card = ({ car }) => {
   const [click, setClick] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
 
@@ -16,9 +16,9 @@ const Card = ({ car, id }) => {
   return (
     <>
       {click && <CardPreview car={car} setClick={setClick} />}
-      {isEdit && <EditCarForm car={car} index={id} setIsEdit={setIsEdit} />}
+      {isEdit && <EditCarForm car={car} setIsEdit={setIsEdit} />}
       <div className={s.root}>
-        <Link href={`/cars/${id}`} className={s.link}></Link>
+        <Link href={`/cars/${car.id}`} className={s.link}></Link>
 
         <h3 className={s.title}>{car.name}</h3>
 

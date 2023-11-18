@@ -1,30 +1,6 @@
 {
   "cars": [
     {
-      "name": "Nissan Altima",
-      "body": "Седан",
-      "year": "2023",
-      "color": "grey",
-      "price": "2 100 000",
-      "hp": "180",
-      "eng": "2.5",
-      "country": "Япония",
-      "description": "Современный седан от Nissan.",
-      "id": 1
-    },
-    {
-      "name": "Chevrolet Malibu",
-      "body": "Седан",
-      "year": "2022",
-      "color": "gold",
-      "price": "2 150 000",
-      "hp": "190",
-      "eng": "2.0",
-      "country": "США",
-      "description": "Просторный и стильный седан от Chevrolet.\nПросторный и стильный седан от Chevrolet.\nПросторный и стильный седан от Chevrolet.\nПросторный и стильный седан от Chevrolet.\nПросторный и стильный седан от Chevrolet.\nПросторный и стильный седан от Chevrolet.\nПросторный и стильный седан от Chevrolet.\nПросторный и стильный седан от Chevrolet.\nПросторный и стильный седан от Chevrolet.\nПросторный и стильный седан от Chevrolet.\nПросторный и стильный седан от Chevrolet.",
-      "id": 2
-    },
-    {
       "name": "Volkswagen Golf",
       "body": "Хэтчбек",
       "year": "2023",
@@ -59,18 +35,6 @@
       "country": "Япония",
       "description": "Энергичный седан от Mazda.",
       "id": 6
-    },
-    {
-      "name": "Renault logan",
-      "body": "Лимузин",
-      "year": "2007",
-      "color": "grey",
-      "price": "500 000",
-      "hp": "120",
-      "eng": "1.6",
-      "country": "франция",
-      "description": "fjdksljklfdsjlkfds",
-      "id": 7
     }
   ]
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { EditCars } from "@/actions/CarActions";
+import { DeleteCars, EditCars } from "@/actions/CarActions";
 
 import s from "./EditCarForm.module.scss";
 import clsx from "clsx";
@@ -36,7 +36,7 @@ const colors = [
   "pink",
 ];
 
-const EditCarForm = ({ setIsEdit, car, index }) => {
+const EditCarForm = ({ setIsEdit, car }) => {
   const [editItem, setEditItem] = useState({ ...car });
   const dispatch = useDispatch();
 
@@ -46,6 +46,11 @@ const EditCarForm = ({ setIsEdit, car, index }) => {
   const HandleSubmit = (e) => {
     e.preventDefault();
     dispatch(EditCars(editItem));
+    setIsEdit(false);
+  };
+
+  const HandleDelete = () => {
+    dispatch(DeleteCars(editItem.id));
     setIsEdit(false);
   };
 
@@ -178,6 +183,9 @@ const EditCarForm = ({ setIsEdit, car, index }) => {
         <div className={s.btn_wrapper}>
           <button className={s.subBtn} type="submit">
             Изменить
+          </button>
+          <button className={s.delBtn} type="button" onClick={HandleDelete}>
+            Удалить
           </button>
         </div>
       </form>
