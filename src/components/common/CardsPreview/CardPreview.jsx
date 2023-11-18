@@ -1,5 +1,6 @@
 import React from "react";
 import clsx from "clsx";
+import Scene from "../Scene";
 
 import s from "./CardPreview.module.scss";
 const CardPreview = ({ car, setClick }) => {
@@ -16,6 +17,9 @@ const CardPreview = ({ car, setClick }) => {
         </button>
 
         <h3 className={s.name}>{car.name}</h3>
+        <div className={s.scene_wrapper}>
+          <Scene color={car.color} animation={true} />
+        </div>
         <div className={s.previw_description}>
           <div className={s.previw_description_item}>
             <p className={s.previw_description_item_title}> Цена: </p>
