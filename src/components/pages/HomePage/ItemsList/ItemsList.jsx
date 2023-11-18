@@ -7,7 +7,7 @@ import Card from "../../../common/Card";
 import { UpdateLocal } from "@/actions/CarActions";
 
 const ItemsList = () => {
-  const { cars } = useSelector((store) => store.Car);
+  const { cars } = useSelector((store) => store.CarReducer);
   const [search, setSearch] = useState("");
 
   const dispatch = useDispatch();

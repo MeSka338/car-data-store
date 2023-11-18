@@ -4,7 +4,7 @@ import thunk from "redux-thunk";
 import CarReducer from "./reducers/CarReducer";
 
 const reduser = combineReducers({
-  Car: CarReducer,
+  CarReducer,
 });
 
 const initialState = {};
