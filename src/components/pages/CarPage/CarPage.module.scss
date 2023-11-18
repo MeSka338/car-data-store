@@ -66,6 +66,15 @@
 
   font-size: 20px;
   overflow: hidden;
+  .close {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background: #000;
+    border: none;
+    cursor: pointer;
+  }
   .description_wrapper {
     opacity: 0;
     background: #000;

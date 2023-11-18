@@ -28,6 +28,20 @@ const CarPage = () => {
       }
     );
   };
+
+  const handleClose = () => {
+    gsap.fromTo(
+      descriptionRef.current,
+      {
+        x: 0,
+      },
+      {
+        opacity: 0,
+        x: 1000,
+      }
+    );
+  };
+
   useEffect(() => {
     dispatch(GetCars());
   }, []);
@@ -62,6 +76,9 @@ const CarPage = () => {
               <h1 className={s.title}>{car.name}</h1>
               <div className={s.description}>
                 <div className={s.description_wrapper} ref={descriptionRef}>
+                  <div className={s.close} onClick={handleClose}>
+                    <img src="/close.svg" alt="close" />
+                  </div>
                   <div className={s.description_item}>
                     <p className={s.description_item_title}> Цена: </p>
                     <p>{car.price} руб</p>
