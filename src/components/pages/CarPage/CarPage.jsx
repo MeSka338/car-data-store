@@ -11,7 +11,7 @@ const CarPage = () => {
   const { cars } = useSelector((state) => state.CarReducer);
   const index = useRouter().query.index;
 
-  const car = cars[index];
+  const car = cars.find((item) => item.id === Number(index));
   useEffect(() => {
     dispatch(GetCars());
   }, []);
