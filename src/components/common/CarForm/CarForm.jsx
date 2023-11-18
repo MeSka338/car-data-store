@@ -21,21 +21,20 @@ const body = [
 ];
 
 const colors = [
-  "Черный",
-  "Серебро",
-  "Белый",
-  "Серый",
-  "Синий",
-  "Красный",
-  "Зеленый",
-  "Коричневый",
-  "Бежевый",
-  "Голубой",
-  "Золотистый",
-  "Желтый",
-  "Фиолетовый",
-  "Оранжквый",
-  "Розовый",
+  "black",
+  "silver",
+  "white",
+  "grey",
+  "blue",
+  "red",
+  "green",
+  "brown",
+  "lightblue",
+  "gold",
+  "yellow",
+  "purple",
+  "orange",
+  "pink",
 ];
 
 const CarForm = ({ isFormOpen, setIsFormOpen }) => {
