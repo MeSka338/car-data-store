@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CardPreview from "../CardsPreview/CardPreview";
 import EditCarForm from "../EditCarForm/EditCarForm";
+import Scene from "../Scene";
 import Link from "next/link";
 
 import clsx from "clsx";
@@ -21,7 +22,9 @@ const Card = ({ car }) => {
         <Link href={`/cars/${car.id}`} className={s.link}></Link>
 
         <h3 className={s.title}>{car.name}</h3>
-
+        <div className={s.scene_wrapper}>
+          <Scene color={car.color} orbit={false} />
+        </div>
         <div className={s.description}>
           <div className={s.text}>
             <p className={s.text_title}> Цена:</p>
