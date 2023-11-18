@@ -1,20 +1,40 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Head from "next/head";
-import s from "./CarPage.module.scss";
-
+import Scene from "@/components/common/Scene";
 import { useSelector, useDispatch } from "react-redux";
-import { useRouter } from "next/router";
+import s from "./CarPage.module.scss";
 import { GetCars } from "@/actions/CarActions";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import gsap from "gsap";
 
 const CarPage = () => {
-  const dispatch = useDispatch();
-  const { cars } = useSelector((state) => state.CarReducer);
   const index = useRouter().query.index;
+  const { cars, loaded } = useSelector((store) => store.CarReducer);
+  const descriptionRef = useRef();
+  let car = cars.find((item) => item.id === Number(index));
 
-  const car = cars.find((item) => item.id === Number(index));
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    gsap.fromTo(
+      descriptionRef.current,
+      {
+        x: 1000,
+      },
+      {
+        opacity: 1,
+        x: 0,
+      }
+    );
+  };
   useEffect(() => {
     dispatch(GetCars());
   }, []);
+
+  if (loaded === false) {
+    return <div>loading</div>;
+  }
 
   return (
     <>
@@ -30,7 +50,64 @@ const CarPage = () => {
       </Head>
 
       <div className={s.root}>
-        {car === undefined ? <h1>not found</h1> : <h1>{car.name}</h1>}
+        <div className={s.scene_wrapper}>
+          {car === undefined ? (
+            <h1>404</h1>
+          ) : (
+            <>
+              <div className={s.header}>
+                <Link href={"/"}> HOME</Link>
+                <button onClick={handleClick}>INFO</button>
+              </div>
+              <h1 className={s.title}>{car.name}</h1>
+              <div className={s.description}>
+                <div className={s.description_wrapper} ref={descriptionRef}>
+                  <div className={s.description_item}>
+                    <p className={s.description_item_title}> Цена: </p>
+                    <p>{car.price} руб</p>
+                  </div>
+                  <div className={s.description_item}>
+                    <p className={s.description_item_title}> Цвет: </p>
+                    <p> {car.color} </p>
+                  </div>
+
+                  <div className={s.description_item}>
+                    <p className={s.description_item_title}> Год выпуска: </p>
+                    <p>{car.year} </p>
+                  </div>
+
+                  <div className={s.description_item}>
+                    <p className={s.description_item_title}> Страна: </p>
+                    <p> {car.country} </p>
+                  </div>
+
+                  <div className={s.description_item}>
+                    <p className={s.description_item_title}> Кузов: </p>
+                    <p> {car.body} </p>
+                  </div>
+
+                  <div className={s.description_item}>
+                    <p className={s.description_item_title}>Лошадиные силы:</p>
+                    <p> {car.hp} </p>
+                  </div>
+
+                  <div className={s.description_item}>
+                    <p className={s.description_item_title}>Обьем двигателя:</p>
+                    <p> {car.eng}</p>
+                  </div>
+
+                  <div className={s.description_item}>
+                    <p className={s.description_item_title}> Описание: </p>
+                    <div>{car.description}</div>
+                  </div>
+                </div>
+              </div>
+              <div className={s.scene}>
+                <Scene color={car.color} orbit={true} />
+              </div>
+            </>
+          )}
+        </div>
       </div>
     </>
   );
