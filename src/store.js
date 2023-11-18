@@ -1,19 +1,20 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-import thunk from "redux-thunk";
+import createSagaMiddleware from "redux-saga";
+import rootSaga from "../sagas";
 import CarReducer from "./reducers/CarReducer";
+
+const sagaMiddleware = createSagaMiddleware();
 
 const reduser = combineReducers({
   CarReducer,
 });
 
-const initialState = {};
-
-const middleware = [thunk];
-
 const store = createStore(
   reduser,
-  initialState,
-  composeWithDevTools(applyMiddleware(...middleware))
+  composeWithDevTools(applyMiddleware(sagaMiddleware))
 );
+
+sagaMiddleware.run(rootSaga);
+
 export default store;

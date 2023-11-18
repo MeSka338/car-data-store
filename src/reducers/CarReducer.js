@@ -1,9 +1,11 @@
-const CarReducer = (state = { cars: [] }, { type, payload }) => {
+const CarReducer = (state = { cars: [], loaded: false }, { type, payload }) => {
   switch (type) {
-    case "ADD_CAR":
-      return { cars: payload };
-    case "UPDATE_LOCAL":
-      return { cars: payload };
+    case "ADD_CARS":
+      return {
+        ...state,
+
+        cars: [...state.cars, payload],
+      };
 
     case "EDIT_CARS":
       for (let i = 0; i < state.cars.length; i++) {
@@ -11,13 +13,24 @@ const CarReducer = (state = { cars: [] }, { type, payload }) => {
           state.cars[i] = payload;
         }
       }
-
-      localStorage.setItem("cars", JSON.stringify([...state.cars]));
-
       return {
         ...state,
         cars: state.cars,
       };
+
+    case "DELETE_CARS":
+      return {
+        ...state,
+        cars: state.cars.filter((item) => item.id !== payload),
+      };
+
+    case "SET_CARS":
+      return {
+        loaded: true,
+        cars: payload,
+      };
+    case "GET_CARS":
+      return state;
 
     default:
       return state;
