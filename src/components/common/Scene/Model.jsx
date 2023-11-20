@@ -3,7 +3,7 @@ import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import gsap from "gsap";
 
-export function Model(props) {
+export const Model = React.memo((props) => {
   const { nodes, materials } = useGLTF("/muscle_car_classic_blue_low_poly.glb");
   const [animation, setAnimation] = useState(props.animation);
   const ref = useRef();
@@ -80,6 +80,6 @@ export function Model(props) {
       </group>
     </group>
   );
-}
+});
 
 useGLTF.preload("/muscle_car_classic_blue_low_poly.glb");

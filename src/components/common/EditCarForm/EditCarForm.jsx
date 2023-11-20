@@ -36,7 +36,7 @@ const colors = [
   "pink",
 ];
 
-const EditCarForm = ({ setIsEdit, car }) => {
+const EditCarForm = React.memo(({ setIsEdit, car }) => {
   const [editItem, setEditItem] = useState({ ...car });
   const dispatch = useDispatch();
 
@@ -191,6 +191,6 @@ const EditCarForm = ({ setIsEdit, car }) => {
       </form>
     </div>
   );
-};
+});
 
 export default EditCarForm;

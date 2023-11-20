@@ -3,7 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { Model } from "./Model";
 
-const Scene = ({ color, orbit, animation }) => {
+const Scene = React.memo(({ color, orbit, animation }) => {
   return (
     <>
       <Canvas camera={{ position: [0, 0, 7] }}>
@@ -16,6 +16,6 @@ const Scene = ({ color, orbit, animation }) => {
       </Canvas>
     </>
   );
-};
+});
 
 export default Scene;

@@ -7,7 +7,7 @@ import Link from "next/link";
 import clsx from "clsx";
 import s from "./Card.module.scss";
 
-const Card = ({ car }) => {
+const Card = React.memo(({ car }) => {
   const [click, setClick] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
 
@@ -57,6 +57,6 @@ const Card = ({ car }) => {
       </div>
     </>
   );
-};
+});
 
 export default Card;

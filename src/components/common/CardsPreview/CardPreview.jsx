@@ -3,7 +3,7 @@ import clsx from "clsx";
 import Scene from "../Scene";
 
 import s from "./CardPreview.module.scss";
-const CardPreview = ({ car, setClick }) => {
+const CardPreview = React.memo(({ car, setClick }) => {
   return (
     <div className={s.preview}>
       <div className={s.preview_window}>
@@ -67,6 +67,6 @@ const CardPreview = ({ car, setClick }) => {
       </div>
     </div>
   );
-};
+});
 
 export default CardPreview;

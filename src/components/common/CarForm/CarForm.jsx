@@ -37,7 +37,7 @@ const colors = [
   "pink",
 ];
 
-const CarForm = ({ isFormOpen, setIsFormOpen }) => {
+const CarForm = React.memo(({ isFormOpen, setIsFormOpen }) => {
   const [newItem, setNewItem] = useState({});
   const dispatch = useDispatch();
 
@@ -165,6 +165,6 @@ const CarForm = ({ isFormOpen, setIsFormOpen }) => {
       </form>
     </div>
   );
-};
+});
 
 export default CarForm;
