@@ -3,19 +3,13 @@ const CarReducer = (state = { cars: [], loaded: false }, { type, payload }) => {
     case "ADD_CARS":
       return {
         ...state,
-
         cars: [...state.cars, payload],
       };
 
     case "EDIT_CARS":
-      for (let i = 0; i < state.cars.length; i++) {
-        if (state.cars[i].id === payload.id) {
-          state.cars[i] = payload;
-        }
-      }
       return {
         ...state,
-        cars: state.cars,
+        cars: state.cars.map((car) => (car.id === payload.id ? payload : car)),
       };
 
     case "DELETE_CARS":
