@@ -64,7 +64,7 @@ const Car = () => {
       </Head>
 
       <div className={s.root}>
-        <div className={s.scene_wrapper}>
+        <div className={s.sceneWrapper}>
           {car === undefined ? (
             <h1>404</h1>
           ) : (
@@ -75,46 +75,46 @@ const Car = () => {
               </div>
               <h1 className={s.title}>{car.name}</h1>
               <div className={s.description}>
-                <div className={s.description_wrapper} ref={descriptionRef}>
+                <div className={s.descriptionWrapper} ref={descriptionRef}>
                   <div className={s.close} onClick={handleClose}>
                     <img src="/close.svg" alt="close" />
                   </div>
-                  <div className={s.description_item}>
-                    <p className={s.description_item_title}> Цена: </p>
+                  <div className={s.descriptionItem}>
+                    <p className={s.descriptionItemTitle}> Цена: </p>
                     <p>{car.price} руб</p>
                   </div>
-                  <div className={s.description_item}>
-                    <p className={s.description_item_title}> Цвет: </p>
+                  <div className={s.descriptionItem}>
+                    <p className={s.descriptionItemTitle}> Цвет: </p>
                     <p> {car.color} </p>
                   </div>
 
-                  <div className={s.description_item}>
-                    <p className={s.description_item_title}> Год выпуска: </p>
+                  <div className={s.descriptionItem}>
+                    <p className={s.descriptionItemTitle}> Год выпуска: </p>
                     <p>{car.year} </p>
                   </div>
 
-                  <div className={s.description_item}>
-                    <p className={s.description_item_title}> Страна: </p>
+                  <div className={s.descriptionItem}>
+                    <p className={s.descriptionItemTitle}> Страна: </p>
                     <p> {car.country} </p>
                   </div>
 
-                  <div className={s.description_item}>
-                    <p className={s.description_item_title}> Кузов: </p>
+                  <div className={s.descriptionItem}>
+                    <p className={s.descriptionItemTitle}> Кузов: </p>
                     <p> {car.body} </p>
                   </div>
 
-                  <div className={s.description_item}>
-                    <p className={s.description_item_title}>Лошадиные силы:</p>
+                  <div className={s.descriptionItem}>
+                    <p className={s.descriptionItemTitle}>Лошадиные силы:</p>
                     <p> {car.hp} </p>
                   </div>
 
-                  <div className={s.description_item}>
-                    <p className={s.description_item_title}>Обьем двигателя:</p>
+                  <div className={s.descriptionItem}>
+                    <p className={s.descriptionItemTitle}>Обьем двигателя:</p>
                     <p> {car.eng}</p>
                   </div>
 
-                  <div className={s.description_item}>
-                    <p className={s.description_item_title}> Описание: </p>
+                  <div className={s.descriptionItem}>
+                    <p className={s.descriptionItemTitle}> Описание: </p>
                     <div>{car.description}</div>
                   </div>
                 </div>

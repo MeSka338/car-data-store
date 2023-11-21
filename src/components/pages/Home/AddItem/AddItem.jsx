@@ -12,7 +12,7 @@ const AddItem = () => {
       {isFormOpen && (
         <CarForm isFormOpen={isFormOpen} setIsFormOpen={setIsFormOpen} />
       )}
-      <div className={s.title_container}>
+      <div className={s.titleContainer}>
         <h2 className={s.title}>Добавить машину </h2>
         <button
           className={clsx(s.addBtn, s.btn)}

@@ -15,8 +15,8 @@ const ItemsList = () => {
     dispatch(GetCars());
   }, []);
   return (
-    <div className={s.root_wrapper}>
-      <div className={s.search_wrapper}>
+    <div className={s.rootWrapper}>
+      <div className={s.searchWrapper}>
         <input
           className={s.search}
           type="text"

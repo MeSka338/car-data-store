@@ -22,24 +22,24 @@ const Card = React.memo(({ car }) => {
         <Link href={`/cars/${car.id}`} className={s.link}></Link>
 
         <h3 className={s.title}>{car.name}</h3>
-        <div className={s.scene_wrapper}>
+        <div className={s.sceneWrapper}>
           <Scene color={car.color} orbit={false} />
         </div>
         <div className={s.description}>
           <div className={s.text}>
-            <p className={s.text_title}> Цена:</p>
+            <p className={s.textTitle}> Цена:</p>
             <p>{car.price} руб</p>
           </div>
           <div className={s.text}>
-            <p className={s.text_title}> Цвет:</p>
+            <p className={s.textTitle}> Цвет:</p>
             <p>{car.color}</p>
           </div>
           <div className={s.text}>
-            <p className={s.text_title}> Год выпуска: </p>
+            <p className={s.textTitle}> Год выпуска: </p>
             <p>{car.year}</p>
           </div>
           <div className={s.text}>
-            <p className={s.text_title}>Страна: </p>
+            <p className={s.textTitle}>Страна: </p>
             <p>{car.country}</p>
           </div>
         </div>

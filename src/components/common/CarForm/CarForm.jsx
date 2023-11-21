@@ -60,9 +60,9 @@ const CarForm = React.memo(({ isFormOpen, setIsFormOpen }) => {
         >
           <img src="close.svg" alt="close" />
         </button>
-        <div className={s.form_items_wrapper}>
-          <div className={s.form_item}>
-            <label className={s.input_title}>Назване</label>
+        <div className={s.formItemsWrapper}>
+          <div className={s.formItem}>
+            <label className={s.inputTitle}>Назване</label>
             <input
               className={s.input}
               name={"name"}
@@ -70,8 +70,8 @@ const CarForm = React.memo(({ isFormOpen, setIsFormOpen }) => {
               onChange={HandleChange}
             ></input>
           </div>
-          <div className={s.form_item}>
-            <label className={s.input_title}>кузов</label>
+          <div className={s.formItem}>
+            <label className={s.inputTitle}>кузов</label>
             <select
               name="body"
               id="cars"
@@ -85,8 +85,8 @@ const CarForm = React.memo(({ isFormOpen, setIsFormOpen }) => {
               })}
             </select>
           </div>
-          <div className={s.form_item}>
-            <label className={s.input_title}>год выпуска</label>
+          <div className={s.formItem}>
+            <label className={s.inputTitle}>год выпуска</label>
             <input
               className={s.input}
               type="number"
@@ -97,8 +97,8 @@ const CarForm = React.memo(({ isFormOpen, setIsFormOpen }) => {
               max={2023}
             ></input>
           </div>
-          <div className={s.form_item}>
-            <label className={s.input_title}>цвет</label>
+          <div className={s.formItem}>
+            <label className={s.inputTitle}>цвет</label>
             <select
               name="color"
               id="colors"
@@ -113,8 +113,8 @@ const CarForm = React.memo(({ isFormOpen, setIsFormOpen }) => {
               })}
             </select>
           </div>
-          <div className={s.form_item}>
-            <label className={s.input_title}>цена</label>
+          <div className={s.formItem}>
+            <label className={s.inputTitle}>цена</label>
             <input
               className={s.input}
               required
@@ -122,8 +122,8 @@ const CarForm = React.memo(({ isFormOpen, setIsFormOpen }) => {
               name="price"
             ></input>
           </div>
-          <div className={s.form_item}>
-            <label className={s.input_title}>лошадиные силы</label>
+          <div className={s.formItem}>
+            <label className={s.inputTitle}>лошадиные силы</label>
             <input
               className={s.input}
               required
@@ -131,8 +131,8 @@ const CarForm = React.memo(({ isFormOpen, setIsFormOpen }) => {
               name="hp"
             ></input>
           </div>
-          <div className={s.form_item}>
-            <label className={s.input_title}>Обьем двигателя</label>
+          <div className={s.formItem}>
+            <label className={s.inputTitle}>Обьем двигателя</label>
             <input
               className={s.input}
               required
@@ -140,8 +140,8 @@ const CarForm = React.memo(({ isFormOpen, setIsFormOpen }) => {
               name="eng"
             ></input>
           </div>
-          <div className={s.form_item}>
-            <label className={s.input_title}>страна</label>
+          <div className={s.formItem}>
+            <label className={s.inputTitle}>страна</label>
             <input
               className={s.input}
               required
@@ -149,8 +149,8 @@ const CarForm = React.memo(({ isFormOpen, setIsFormOpen }) => {
               name="country"
             ></input>
           </div>
-          <div className={s.form_item}>
-            <label className={s.input_title}>описание</label>
+          <div className={s.formItem}>
+            <label className={s.inputTitle}>описание</label>
             <textarea
               className={s.input}
               required
