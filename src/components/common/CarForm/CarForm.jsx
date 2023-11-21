@@ -6,6 +6,7 @@ import { body, colors } from "@/constants/car";
 
 import s from "./CarForm.module.scss";
 import clsx from "clsx";
+import CloseIcon from "@/components/icons/Close";
 
 const CarForm = React.memo(({ isFormOpen, setIsFormOpen }) => {
   const [newItem, setNewItem] = useState({});
@@ -28,7 +29,7 @@ const CarForm = React.memo(({ isFormOpen, setIsFormOpen }) => {
           type="button"
           onClick={() => setIsFormOpen(!isFormOpen)}
         >
-          <img src="close.svg" alt="close" />
+          <CloseIcon />
         </button>
         <div className={s.formItemsWrapper}>
           <div className={s.formItem}>

@@ -3,6 +3,7 @@ import clsx from "clsx";
 import CarForm from "@/components/common/CarForm";
 
 import s from "./AddItem.module.scss";
+import AddIcon from "@/components/icons/Add";
 
 const AddItem = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -18,7 +19,7 @@ const AddItem = () => {
           className={clsx(s.addBtn, s.btn)}
           onClick={() => setIsFormOpen(!isFormOpen)}
         >
-          <img src="/add.svg" alt="add" />
+          <AddIcon />
         </button>
       </div>
     </div>

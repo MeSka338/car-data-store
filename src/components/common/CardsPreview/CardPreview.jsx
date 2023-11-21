@@ -3,6 +3,7 @@ import clsx from "clsx";
 import Scene from "../Scene";
 
 import s from "./CardPreview.module.scss";
+import CloseIcon from "@/components/icons/Close";
 const CardPreview = React.memo(({ car, setClick }) => {
   return (
     <div className={s.preview}>
@@ -13,7 +14,7 @@ const CardPreview = React.memo(({ car, setClick }) => {
             setClick(false);
           }}
         >
-          <img src="close.svg" alt="close" />
+          <CloseIcon />
         </button>
 
         <h3 className={s.name}>{car.name}</h3>

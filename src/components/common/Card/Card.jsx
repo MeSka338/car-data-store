@@ -6,6 +6,8 @@ import Link from "next/link";
 
 import clsx from "clsx";
 import s from "./Card.module.scss";
+import EditIcon from "@/components/icons/Edit";
+import EyeIcon from "@/components/icons/Eye";
 
 const Card = React.memo(({ car }) => {
   const [click, setClick] = useState(false);
@@ -48,10 +50,10 @@ const Card = React.memo(({ car }) => {
             className={clsx(s.editBtn, s.btn)}
             onClick={() => setIsEdit(true)}
           >
-            <img src="edit.svg" alt="eye" />
+            <EditIcon />
           </button>
           <button className={clsx(s.showBtn, s.btn)} onClick={HnadleClick}>
-            <img src="eye.svg" alt="eye" />
+            <EyeIcon />
           </button>
         </div>
       </div>

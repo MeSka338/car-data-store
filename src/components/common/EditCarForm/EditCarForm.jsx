@@ -6,6 +6,7 @@ import { body, colors } from "@/constants/car";
 
 import s from "./EditCarForm.module.scss";
 import clsx from "clsx";
+import CloseIcon from "@/components/icons/Close";
 
 const EditCarForm = React.memo(({ setIsEdit, car }) => {
   const [editItem, setEditItem] = useState({ ...car });
@@ -33,7 +34,7 @@ const EditCarForm = React.memo(({ setIsEdit, car }) => {
           type="button"
           onClick={() => setIsEdit(false)}
         >
-          <img src="close.svg" alt="close" />
+          <CloseIcon />
         </button>
         <div className={s.formItemsWrapper}>
           <div className={s.formItem}>

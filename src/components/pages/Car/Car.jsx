@@ -77,7 +77,7 @@ const Car = () => {
               <div className={s.description}>
                 <div className={s.descriptionWrapper} ref={descriptionRef}>
                   <div className={s.close} onClick={handleClose}>
-                    <img src="/close.svg" alt="close" />
+                    <Close />
                   </div>
                   <div className={s.descriptionItem}>
                     <p className={s.descriptionItemTitle}> Цена: </p>
