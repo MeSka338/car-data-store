@@ -1,8 +1,8 @@
 import React from "react";
 import AddItem from "./AddItem/AddItem";
 import ItemsList from "./ItemsList";
-import s from "./HomePage.module.scss";
-const HomePage = () => {
+import s from "./Home.module.scss";
+const Home = () => {
   return (
     <div className={s.root}>
       <AddItem />
@@ -11,4 +11,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Home;
