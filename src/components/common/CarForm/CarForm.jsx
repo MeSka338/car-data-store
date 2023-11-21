@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
 import { AddCarAction } from "@/actions/CarActions";
 
@@ -12,14 +12,14 @@ const CarForm = React.memo(({ isFormOpen, setIsFormOpen }) => {
   const [newItem, setNewItem] = useState({});
   const dispatch = useDispatch();
 
-  const HandleChange = (e) => {
+  const HandleChange = useCallback((e) => {
     setNewItem({ ...newItem, [e.target.name]: e.target.value });
-  };
-  const HandleSubmit = (e) => {
+  }, []);
+  const HandleSubmit = useCallback((e) => {
     e.preventDefault();
     dispatch(AddCarAction({ ...newItem, id: Date.now() }));
     setIsFormOpen(false);
-  };
+  }, []);
 
   return (
     <div className={s.form_container}>

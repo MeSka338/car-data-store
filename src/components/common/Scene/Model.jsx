@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import gsap from "gsap";
@@ -13,7 +13,7 @@ export const Model = React.memo((props) => {
     roughness: 0.2,
   });
 
-  const midelAnimation = () => {
+  const midelAnimation = useCallback(() => {
     gsap.from(ref.current.rotation, {
       ease: "power4.out",
       duration: 4,
@@ -31,7 +31,7 @@ export const Model = React.memo((props) => {
       z: 2.5,
       ease: "power4.out",
     });
-  };
+  }, []);
   useEffect(() => {
     if (animation) {
       midelAnimation();

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import Head from "next/head";
 import Scene from "@/components/common/Scene";
 import { useSelector, useDispatch } from "react-redux";
@@ -7,6 +7,7 @@ import { GetCars } from "@/actions/CarActions";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import gsap from "gsap";
+import CloseIcon from "@/components/icons/Close";
 
 const Car = () => {
   const index = useRouter().query.index;
@@ -16,7 +17,7 @@ const Car = () => {
 
   const dispatch = useDispatch();
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     gsap.fromTo(
       descriptionRef.current,
       {
@@ -27,9 +28,9 @@ const Car = () => {
         x: 0,
       }
     );
-  };
+  }, []);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     gsap.fromTo(
       descriptionRef.current,
       {
@@ -40,7 +41,7 @@ const Car = () => {
         x: 1000,
       }
     );
-  };
+  }, []);
 
   useEffect(() => {
     dispatch(GetCars());
@@ -77,7 +78,7 @@ const Car = () => {
               <div className={s.description}>
                 <div className={s.descriptionWrapper} ref={descriptionRef}>
                   <div className={s.close} onClick={handleClose}>
-                    <Close />
+                    <CloseIcon />
                   </div>
                   <div className={s.descriptionItem}>
                     <p className={s.descriptionItemTitle}> Цена: </p>

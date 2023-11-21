@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import CardPreview from "../CardsPreview/CardPreview";
 import EditCarForm from "../EditCarForm/EditCarForm";
 import Scene from "../Scene";
@@ -13,9 +13,10 @@ const Card = React.memo(({ car }) => {
   const [click, setClick] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
 
-  const HnadleClick = () => {
+  const HnadleClick = useCallback(() => {
     setClick((prev) => !prev);
-  };
+  }, []);
+
   return (
     <>
       {click && <CardPreview car={car} setClick={setClick} />}
