@@ -4,6 +4,7 @@ import Scene from "../Scene";
 
 import s from "./CardPreview.module.scss";
 import CloseIcon from "@/components/icons/Close";
+
 const CardPreview = React.memo(({ car, setClick }) => {
   return (
     <div className={s.preview}>

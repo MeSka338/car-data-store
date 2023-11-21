@@ -1,4 +1,10 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import gsap from "gsap";
@@ -7,11 +13,16 @@ export const Model = React.memo((props) => {
   const { nodes, materials } = useGLTF("/muscle_car_classic_blue_low_poly.glb");
   const [animation, setAnimation] = useState(props.animation);
   const ref = useRef();
-  const material = new THREE.MeshStandardMaterial({
-    color: new THREE.Color(props.carColor),
-    metalness: 0.7,
-    roughness: 0.2,
-  });
+
+  const material = useMemo(
+    () =>
+      new THREE.MeshStandardMaterial({
+        color: new THREE.Color(props.carColor),
+        metalness: 0.7,
+        roughness: 0.2,
+      }),
+    []
+  );
 
   const midelAnimation = useCallback(() => {
     gsap.from(ref.current.rotation, {
