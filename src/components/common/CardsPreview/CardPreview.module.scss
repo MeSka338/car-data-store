@@ -1,4 +1,5 @@
 @import "@/styles/commonElements.scss";
+@import "@/styles/colors.scss";
 
 .preview {
   width: 100%;
@@ -13,7 +14,7 @@
   align-items: center;
 
   &_window {
-    background: rgb(25 27 32);
+    background: $Black2;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -33,7 +34,7 @@
   // width: 100%;
   height: 70%;
 
-  // background: white;
+  // background: $White1;
 }
 .closeBtn {
   position: absolute;
@@ -44,7 +45,7 @@
   width: 50px;
   height: 50px;
 
-  background: rgb(28 32 42);
+  background: $DarkBlue2;
 }
 
 .previwDescription {
@@ -55,7 +56,7 @@
   &_item {
     display: flex;
     gap: 5px;
-    color: rgb(153 160 177);
+    color: $Gray;
 
     &:last-child {
       grid-column: span 2;
@@ -64,7 +65,7 @@
       flex-direction: column;
     }
     &_title {
-      color: rgb(232 232 251);
+      color: $White2;
 
       font-weight: 700;
     }
