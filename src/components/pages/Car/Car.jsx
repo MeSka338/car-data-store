@@ -2,13 +2,13 @@ import React, { useEffect, useState, useRef } from "react";
 import Head from "next/head";
 import Scene from "@/components/common/Scene";
 import { useSelector, useDispatch } from "react-redux";
-import s from "./CarPage.module.scss";
+import s from "./Car.module.scss";
 import { GetCars } from "@/actions/CarActions";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import gsap from "gsap";
 
-const CarPage = () => {
+const Car = () => {
   const index = useRouter().query.index;
   const { cars, loaded } = useSelector((store) => store.CarReducer);
   const descriptionRef = useRef();
@@ -130,4 +130,4 @@ const CarPage = () => {
   );
 };
 
-export default CarPage;
+export default Car;
