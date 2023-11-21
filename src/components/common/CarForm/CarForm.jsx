@@ -2,40 +2,10 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { AddCarAction } from "@/actions/CarActions";
 
+import { body, colors } from "@/constants/car";
+
 import s from "./CarForm.module.scss";
 import clsx from "clsx";
-
-const body = [
-  "Седан",
-  "Лимузин",
-  "Пикап",
-  "Хэтчбек",
-  "Универсал",
-  "Лифтбек",
-  "Минивэн",
-  "Купе",
-  "Кабриолет",
-  "Лифтбек",
-  "Родстер",
-  "Тарга",
-];
-
-const colors = [
-  "black",
-  "silver",
-  "white",
-  "grey",
-  "blue",
-  "red",
-  "green",
-  "brown",
-  "lightblue",
-  "gold",
-  "yellow",
-  "purple",
-  "orange",
-  "pink",
-];
 
 const CarForm = React.memo(({ isFormOpen, setIsFormOpen }) => {
   const [newItem, setNewItem] = useState({});
