@@ -1,7 +1,4 @@
-import React, { useCallback, useState } from "react";
-import { useDispatch } from "react-redux";
-// import { AddCarAction } from "@/actions/CarActions";
-import { AddCars } from "@/_redux/car/selectors";
+import React from "react";
 
 import { body, colors } from "@/constants/car";
 
@@ -9,26 +6,9 @@ import s from "./CarForm.module.scss";
 import clsx from "clsx";
 import CloseIcon from "@/components/icons/Close";
 
-const CarForm = React.memo(({ isFormOpen, setIsFormOpen }) => {
-  const [newItem, setNewItem] = useState({});
-  const dispatch = useDispatch();
-
-  const HandleChange = useCallback(
-    (e) => {
-      setNewItem({ ...newItem, [e.target.name]: e.target.value });
-    },
-    [newItem]
-  );
-  const HandleSubmit = useCallback(
-    (e) => {
-      e.preventDefault();
-
-      dispatch(AddCars({ ...newItem, id: Date.now() }));
-      setIsFormOpen(false);
-    },
-    [newItem]
-  );
-
+const CarForm = React.memo((props) => {
+  const { HandleSubmit, HandleChange, isFormOpen, newItem, setIsFormOpen } =
+    props;
   return (
     <div className={s.form_container}>
       <form className={s.form} onSubmit={HandleSubmit}>
