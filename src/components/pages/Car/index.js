@@ -1,1 +1,1 @@
-export { default } from "./Car";
+export { default } from "./CarContainer";

@@ -1,61 +1,12 @@
-import React, {
-  useEffect,
-  useState,
-  useRef,
-  useCallback,
-  useMemo,
-} from "react";
-
 import Head from "next/head";
 import Scene from "@/components/common/Scene";
-import { useSelector, useDispatch } from "react-redux";
-import s from "./Car.module.scss";
-import { GetCars } from "@/_redux/car/selectors";
-import { useRouter } from "next/router";
-import Link from "next/link";
-import gsap from "gsap";
 import CloseIcon from "@/components/icons/Close";
+import Link from "next/link";
+import s from "./Car.module.scss";
+import React from "react";
 
-const Car = () => {
-  const index = useRouter().query.index;
-  const { cars, loaded } = useSelector((store) => store.CarReducer);
-  const descriptionRef = useRef();
-  let car = useMemo(
-    () => cars.find((item) => item.id === Number(index)),
-    [index]
-  );
-
-  const dispatch = useDispatch();
-
-  const handleClick = useCallback(() => {
-    gsap.fromTo(
-      descriptionRef.current,
-      {
-        x: 1000,
-      },
-      {
-        opacity: 1,
-        x: 0,
-      }
-    );
-  }, []);
-
-  const handleClose = useCallback(() => {
-    gsap.fromTo(
-      descriptionRef.current,
-      {
-        x: 0,
-      },
-      {
-        opacity: 0,
-        x: 1000,
-      }
-    );
-  }, []);
-
-  useEffect(() => {
-    dispatch(GetCars());
-  }, []);
+const Car = (props) => {
+  const { handleClose, handleClick, car, loaded, descriptionRef } = props;
 
   if (loaded === false) {
     return <div>loading</div>;
