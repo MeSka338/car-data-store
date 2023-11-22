@@ -13,14 +13,21 @@ const CarForm = React.memo(({ isFormOpen, setIsFormOpen }) => {
   const [newItem, setNewItem] = useState({});
   const dispatch = useDispatch();
 
-  const HandleChange = (e) => {
-    setNewItem({ ...newItem, [e.target.name]: e.target.value });
-  };
-  const HandleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(AddCars({ ...newItem, id: Date.now() }));
-    setIsFormOpen(false);
-  };
+  const HandleChange = useCallback(
+    (e) => {
+      setNewItem({ ...newItem, [e.target.name]: e.target.value });
+    },
+    [newItem]
+  );
+  const HandleSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+
+      dispatch(AddCars({ ...newItem, id: Date.now() }));
+      setIsFormOpen(false);
+    },
+    [newItem]
+  );
 
   return (
     <div className={s.form_container}>

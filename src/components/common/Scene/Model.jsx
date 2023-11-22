@@ -14,11 +14,15 @@ export const Model = React.memo((props) => {
   const [animation, setAnimation] = useState(props.animation);
   const ref = useRef();
 
-  const material = new THREE.MeshStandardMaterial({
-    color: new THREE.Color(props.carColor),
-    metalness: 0.7,
-    roughness: 0.2,
-  });
+  const material = useMemo(
+    () =>
+      new THREE.MeshStandardMaterial({
+        color: new THREE.Color(props.carColor),
+        metalness: 0.7,
+        roughness: 0.2,
+      }),
+    [props.carColor]
+  );
 
   const midelAnimation = useCallback(() => {
     gsap.from(ref.current.rotation, {

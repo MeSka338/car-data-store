@@ -1,52 +1,16 @@
 {
   "cars": [
     {
-      "name": "Volkswagen Golf",
-      "body": "Хэтчбек",
-      "year": "2023",
-      "color": "white",
-      "price": "1 900 000",
-      "hp": "150",
-      "eng": "1.6",
-      "country": "Германия",
-      "description": "Надежный и экономичный хэтчбек от Volkswagen.",
-      "id": 3
-    },
-    {
-      "name": "Renault Megane",
-      "body": "Хэтчбек",
-      "year": "2023",
-      "color": "blue",
-      "price": "1 950 000",
-      "hp": "160",
-      "eng": "1.5",
-      "country": "Франция",
-      "description": "Стильный и динамичный хэтчбек от Renault.",
-      "id": 5
-    },
-    {
-      "id": 1700608201920,
-      "name": "Renault logan",
-      "body": "Седан",
-      "year": "1886",
-      "color": "black",
+      "name": "name",
+      "body": "Пикап",
+      "year": "1885",
+      "color": "brown",
       "price": "300000",
       "hp": "200",
       "eng": "1.6",
       "country": "франция",
-      "description": "hgfhfg"
-    },
-    {
-      "name": "Renault logan",
-      "body": "Седан",
-      "year": "1886",
-      "color": "lightblue",
-      "price": "300000",
-      "hp": "200",
-      "eng": "1.6",
-      "country": "франция",
-      "description": "gfdgfd",
-      "id": 1700608283269
+      "description": "gfdgdf",
+      "id": 1700658663869
     }
   ]
 }

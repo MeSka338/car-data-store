@@ -12,21 +12,25 @@ const EditCarForm = React.memo(({ setIsEdit, car }) => {
   const [editItem, setEditItem] = useState({ ...car });
   const dispatch = useDispatch();
 
-  const HandleChange = (e) => {
-    setEditItem({ ...editItem, [e.target.name]: e.target.value });
-    console.log(editItem);
-  };
-  const HandleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(EditCars(editItem));
-    console.log("sub");
-    setIsEdit(false);
-  };
+  const HandleChange = useCallback(
+    (e) => {
+      setEditItem({ ...editItem, [e.target.name]: e.target.value });
+    },
+    [editItem]
+  );
+  const HandleSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+      dispatch(EditCars(editItem));
+      setIsEdit(false);
+    },
+    [editItem]
+  );
 
-  const HandleDelete = () => {
+  const HandleDelete = useCallback(() => {
     dispatch(DeleteCars(editItem.id));
     setIsEdit(false);
-  };
+  }, [editItem]);
 
   return (
     <div className={s.form_container}>

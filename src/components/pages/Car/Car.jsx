@@ -20,8 +20,10 @@ const Car = () => {
   const index = useRouter().query.index;
   const { cars, loaded } = useSelector((store) => store.CarReducer);
   const descriptionRef = useRef();
-  // let car = useMemo(() => cars.find((item) => item.id === Number(index)), []);
-  let car = cars.find((item) => item.id === Number(index));
+  let car = useMemo(
+    () => cars.find((item) => item.id === Number(index)),
+    [index]
+  );
 
   const dispatch = useDispatch();
 
