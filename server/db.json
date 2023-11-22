@@ -11,6 +11,18 @@
       "country": "франция",
       "description": "gfdgdf",
       "id": 1700658663869
+    },
+    {
+      "name": "Renault logan",
+      "body": "Пикап",
+      "year": "1886",
+      "color": "silver",
+      "price": "300000",
+      "hp": "200",
+      "eng": "1.6",
+      "country": "321",
+      "description": "ffsdsfds",
+      "id": 1700661899373
     }
   ]
 }

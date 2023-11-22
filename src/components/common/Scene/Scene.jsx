@@ -1,7 +1,7 @@
 import React from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { Model } from "./Model";
+import { ModelContainer } from "./Model/ModelContainer";
 
 const Scene = React.memo(({ color, orbit, animation }) => {
   return (
@@ -11,7 +11,7 @@ const Scene = React.memo(({ color, orbit, animation }) => {
         <ambientLight intensity={2} color={"white"} />
         <pointLight position={[2, 1, 0]} intensity={5} />
         <pointLight position={[-0.5, 1, 1]} intensity={5} />
-        <Model carColor={color} animation={animation} />
+        <ModelContainer carColor={color} animation={animation} />
         {orbit && <OrbitControls />}
       </Canvas>
     </>

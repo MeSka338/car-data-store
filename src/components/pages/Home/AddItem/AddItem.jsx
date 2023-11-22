@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import clsx from "clsx";
-import CarForm from "@/components/common/CarForm";
+import CarFormContainer from "@/components/common/CarForm/CarFormContainer";
 
 import s from "./AddItem.module.scss";
 import AddIcon from "@/components/icons/Add";
@@ -11,7 +11,10 @@ const AddItem = () => {
   return (
     <div className={s.root}>
       {isFormOpen && (
-        <CarForm isFormOpen={isFormOpen} setIsFormOpen={setIsFormOpen} />
+        <CarFormContainer
+          isFormOpen={isFormOpen}
+          setIsFormOpen={setIsFormOpen}
+        />
       )}
       <div className={s.titleContainer}>
         <h2 className={s.title}>Добавить машину </h2>

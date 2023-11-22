@@ -1,19 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 
 import s from "./ItemsList.module.scss";
 
 import Card from "../../../common/Card";
-import { GetCars } from "@/_redux/car/selectors";
 
-const ItemsList = () => {
-  const { cars } = useSelector((store) => store.CarReducer);
-  const [search, setSearch] = useState("");
-
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(GetCars());
-  }, []);
+const ItemsList = (props) => {
+  const { cars, setSearch, search } = props;
   return (
     <div className={s.rootWrapper}>
       <div className={s.searchWrapper}>
