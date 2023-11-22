@@ -6,7 +6,33 @@ import s from "./Car.module.scss";
 import React from "react";
 
 const Car = (props) => {
-  const { handleClose, handleClick, car, loaded, descriptionRef } = props;
+  const { car, loaded, descriptionRef } = props;
+
+  const handleClick = useCallback(() => {
+    gsap.fromTo(
+      descriptionRef.current,
+      {
+        x: 1000,
+      },
+      {
+        opacity: 1,
+        x: 0,
+      }
+    );
+  }, []);
+
+  const handleClose = useCallback(() => {
+    gsap.fromTo(
+      descriptionRef.current,
+      {
+        x: 0,
+      },
+      {
+        opacity: 0,
+        x: 1000,
+      }
+    );
+  }, []);
 
   if (loaded === false) {
     return <div>loading</div>;

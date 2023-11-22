@@ -17,44 +17,10 @@ const CarContainer = () => {
 
   const dispatch = useDispatch();
 
-  const handleClick = useCallback(() => {
-    gsap.fromTo(
-      descriptionRef.current,
-      {
-        x: 1000,
-      },
-      {
-        opacity: 1,
-        x: 0,
-      }
-    );
-  }, []);
-
-  const handleClose = useCallback(() => {
-    gsap.fromTo(
-      descriptionRef.current,
-      {
-        x: 0,
-      },
-      {
-        opacity: 0,
-        x: 1000,
-      }
-    );
-  }, []);
-
   useEffect(() => {
     dispatch(GetCars());
   }, []);
-  return (
-    <Car
-      handleClose={handleClose}
-      handleClick={handleClick}
-      car={car}
-      loaded={loaded}
-      descriptionRef={descriptionRef}
-    />
-  );
+  return <Car car={car} loaded={loaded} descriptionRef={descriptionRef} />;
 };
 
 export default CarContainer;
