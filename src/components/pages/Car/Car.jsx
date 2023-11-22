@@ -1,9 +1,12 @@
+import React, { useCallback } from "react";
 import Head from "next/head";
-import Scene from "@/components/common/Scene";
-import CloseIcon from "@/components/icons/Close";
 import Link from "next/link";
 import s from "./Car.module.scss";
-import React from "react";
+
+import gsap from "gsap";
+
+import CloseIcon from "@/components/icons/Close";
+import Scene from "@/components/common/Scene";
 
 const Car = (props) => {
   const { car, loaded, descriptionRef } = props;
