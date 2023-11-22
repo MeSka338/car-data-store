@@ -1,9 +1,16 @@
-import React, { useEffect, useState, useRef, useCallback } from "react";
+import React, {
+  useEffect,
+  useState,
+  useRef,
+  useCallback,
+  useMemo,
+} from "react";
+
 import Head from "next/head";
 import Scene from "@/components/common/Scene";
 import { useSelector, useDispatch } from "react-redux";
 import s from "./Car.module.scss";
-import { GetCars } from "@/actions/CarActions";
+import { GetCars } from "@/_redux/car/selectors";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import gsap from "gsap";
@@ -13,7 +20,8 @@ const Car = () => {
   const index = useRouter().query.index;
   const { cars, loaded } = useSelector((store) => store.CarReducer);
   const descriptionRef = useRef();
-  let car = useMemo(() => cars.find((item) => item.id === Number(index)), []);
+  // let car = useMemo(() => cars.find((item) => item.id === Number(index)), []);
+  let car = cars.find((item) => item.id === Number(index));
 
   const dispatch = useDispatch();
 

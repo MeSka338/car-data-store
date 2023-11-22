@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import s from "./ItemsList.module.scss";
 
 import Card from "../../../common/Card";
-import { GetCars } from "@/actions/CarActions";
+import { GetCars } from "@/_redux/car/selectors";
 
 const ItemsList = () => {
   const { cars } = useSelector((store) => store.CarReducer);

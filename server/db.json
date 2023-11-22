@@ -4,7 +4,7 @@
       "name": "Volkswagen Golf",
       "body": "Хэтчбек",
       "year": "2023",
-      "color": "grey",
+      "color": "white",
       "price": "1 900 000",
       "hp": "150",
       "eng": "1.6",
@@ -16,7 +16,7 @@
       "name": "Renault Megane",
       "body": "Хэтчбек",
       "year": "2023",
-      "color": "green",
+      "color": "blue",
       "price": "1 950 000",
       "hp": "160",
       "eng": "1.5",
@@ -25,16 +25,28 @@
       "id": 5
     },
     {
-      "name": "Mazda3",
+      "id": 1700608201920,
+      "name": "Renault logan",
       "body": "Седан",
-      "year": "2022",
-      "color": "yellow",
-      "price": "2 120 000",
-      "hp": "180",
-      "eng": "2.0",
-      "country": "Япония",
-      "description": "Энергичный седан от Mazda.",
-      "id": 6
+      "year": "1886",
+      "color": "black",
+      "price": "300000",
+      "hp": "200",
+      "eng": "1.6",
+      "country": "франция",
+      "description": "hgfhfg"
+    },
+    {
+      "name": "Renault logan",
+      "body": "Седан",
+      "year": "1886",
+      "color": "lightblue",
+      "price": "300000",
+      "hp": "200",
+      "eng": "1.6",
+      "country": "франция",
+      "description": "gfdgfd",
+      "id": 1700608283269
     }
   ]
 }

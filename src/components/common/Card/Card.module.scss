@@ -46,7 +46,7 @@
   position: absolute;
   z-index: 0;
 }
-.card_wrapper {
+.cardWrapper {
   text-decoration: none;
   color: $Black1;
 }
@@ -64,7 +64,7 @@
 
   color: $Gray;
 
-  &_title {
+  &Title {
     color: $White2;
 
     font-weight: 700;

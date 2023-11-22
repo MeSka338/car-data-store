@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
-import { DeleteCars, EditCars } from "@/actions/CarActions";
+import { DeleteCars, EditCars } from "@/_redux/car/selectors";
 
 import { body, colors } from "@/constants/car";
 
@@ -12,19 +12,21 @@ const EditCarForm = React.memo(({ setIsEdit, car }) => {
   const [editItem, setEditItem] = useState({ ...car });
   const dispatch = useDispatch();
 
-  const HandleChange = useCallback((e) => {
+  const HandleChange = (e) => {
     setEditItem({ ...editItem, [e.target.name]: e.target.value });
-  }, []);
-  const HandleSubmit = useCallback((e) => {
+    console.log(editItem);
+  };
+  const HandleSubmit = (e) => {
     e.preventDefault();
     dispatch(EditCars(editItem));
+    console.log("sub");
     setIsEdit(false);
-  }, []);
+  };
 
-  const HandleDelete = useCallback(() => {
+  const HandleDelete = () => {
     dispatch(DeleteCars(editItem.id));
     setIsEdit(false);
-  }, []);
+  };
 
   return (
     <div className={s.form_container}>

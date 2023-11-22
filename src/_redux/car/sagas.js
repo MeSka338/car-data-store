@@ -7,7 +7,7 @@ import {
   take,
 } from "@redux-saga/core/effects";
 
-import { SetCars } from "@/actions/CarActions";
+import { SetCars } from "./selectors";
 import {
   getCarsApi,
   addCarsApi,
@@ -25,6 +25,7 @@ export function* addCarWorker({ payload }) {
 }
 
 export function* editCarWorker({ payload }) {
+  console.log("sagaEdit");
   yield call(editCarsApi, payload);
 }
 
