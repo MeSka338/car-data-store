@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import CardPreview from "../CardsPreview/CardPreview";
-import EditCarForm from "../EditCarForm/EditCarForm";
+import EditCarFormContainer from "../EditCarForm/EditCarFormContainer";
 import Scene from "../Scene";
 import Link from "next/link";
 
@@ -20,7 +20,7 @@ const Card = React.memo(({ car }) => {
   return (
     <>
       {click && <CardPreview car={car} setClick={setClick} />}
-      {isEdit && <EditCarForm car={car} setIsEdit={setIsEdit} />}
+      {isEdit && <EditCarFormContainer car={car} setIsEdit={setIsEdit} />}
       <div className={s.root}>
         <Link href={`/cars/${car.id}`} className={s.link}></Link>
 
