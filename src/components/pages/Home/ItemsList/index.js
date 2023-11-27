@@ -1,3 +1,1 @@
-import ItemsListContainer from "./ItemListContainer";
-
-export {default} from ItemsListContainer
+export { default } from "./ItemsList";

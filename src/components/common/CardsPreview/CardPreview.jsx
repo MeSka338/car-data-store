@@ -5,16 +5,11 @@ import Scene from "../Scene";
 import s from "./CardPreview.module.scss";
 import CloseIcon from "@/components/icons/Close";
 
-const CardPreview = React.memo(({ car, setClick }) => {
+const CardPreview = React.memo(({ car, onClose }) => {
   return (
     <div className={s.preview}>
       <div className={s.previewWindow}>
-        <button
-          className={clsx(s.closeBtn, s.btn)}
-          onClick={() => {
-            setClick(false);
-          }}
-        >
+        <button className={clsx(s.closeBtn, s.btn)} onClick={onClose}>
           <CloseIcon />
         </button>
 

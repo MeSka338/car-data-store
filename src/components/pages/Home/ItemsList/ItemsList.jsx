@@ -4,8 +4,21 @@ import s from "./ItemsList.module.scss";
 
 import Card from "../../../common/Card";
 
-const ItemsList = (props) => {
-  const { cars, setSearch, search } = props;
+const ItemsList = ({
+  cars,
+  search,
+  close,
+  isEdit,
+  setSearch,
+  onClose,
+  onChangeEdit,
+  onSubmitEdit,
+  onDelete,
+  setIsEdit,
+  setEditItem,
+
+  editItem,
+}) => {
   return (
     <div className={s.rootWrapper}>
       <div className={s.searchWrapper}>
@@ -28,7 +41,20 @@ const ItemsList = (props) => {
                   : item.name.toLowerCase().includes(search);
               })
               .map((car, key) => (
-                <Card key={key} id={key} car={car} />
+                <Card
+                  key={key}
+                  id={key}
+                  car={car}
+                  close={close}
+                  isEdit={isEdit}
+                  onClose={onClose}
+                  onChangeEdit={onChangeEdit}
+                  onSubmitEdit={onSubmitEdit}
+                  onDelete={onDelete}
+                  editItem={editItem}
+                  setEditItem={setEditItem}
+                  setIsEdit={setIsEdit}
+                />
               ))}
           </div>
         )}

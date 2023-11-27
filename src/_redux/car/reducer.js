@@ -31,6 +31,7 @@ const CarReducer = (state = { cars: [], loaded: false }, { type, payload }) => {
         loaded: true,
         cars: payload,
       };
+
     case GET_CARS:
       return state;
 
