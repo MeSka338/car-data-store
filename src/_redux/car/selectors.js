@@ -3,6 +3,7 @@ import {
   SET_CARS,
   ADD_CARS,
   EDIT_CARS,
+  SET_EDIT,
   DELETE_CARS,
 } from "./actions";
 
@@ -22,6 +23,10 @@ export const AddCars = (car) => ({
 
 export const EditCars = (editCar) => ({
   type: EDIT_CARS,
+  payload: editCar,
+});
+export const SetEdit = (editCar) => ({
+  type: SET_EDIT,
   payload: editCar,
 });
 

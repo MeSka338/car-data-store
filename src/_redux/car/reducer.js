@@ -3,6 +3,7 @@ import {
   SET_CARS,
   ADD_CARS,
   EDIT_CARS,
+  SET_EDIT,
   DELETE_CARS,
 } from "./actions";
 
@@ -18,6 +19,15 @@ const CarReducer = (state = { cars: [], loaded: false }, { type, payload }) => {
       return {
         ...state,
         cars: state.cars.map((car) => (car.id === payload.id ? payload : car)),
+      };
+    case SET_EDIT:
+      return {
+        ...state,
+        cars: state.cars.map((car) =>
+          car.id === payload.id
+            ? { ...payload, isEdit: !payload.isEdit }
+            : { ...car, isEdit: false }
+        ),
       };
 
     case DELETE_CARS:

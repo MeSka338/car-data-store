@@ -16,6 +16,7 @@ const ItemsList = ({
   onDelete,
   setIsEdit,
   setEditItem,
+  onSetEdit,
 
   editItem,
 }) => {
@@ -54,6 +55,7 @@ const ItemsList = ({
                   editItem={editItem}
                   setEditItem={setEditItem}
                   setIsEdit={setIsEdit}
+                  onSetEdit={onSetEdit}
                 />
               ))}
           </div>

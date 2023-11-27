@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CardPreview from "../CardsPreview/CardPreview";
 import Scene from "../Scene";
 import Link from "next/link";
@@ -8,6 +8,8 @@ import s from "./Card.module.scss";
 import EditIcon from "@/components/icons/Edit";
 import EyeIcon from "@/components/icons/Eye";
 import EditCarForm from "../EditCarForm";
+import { useDispatch } from "react-redux";
+import { SetEdit } from "@/_redux/car/selectors";
 
 const Card = React.memo(
   ({
@@ -22,11 +24,14 @@ const Card = React.memo(
     editItem,
     setIsEdit,
     setEditItem,
+    onSetEdit,
   }) => {
+    // const dispatch = useDispatch();
+
     return (
       <>
         {close && <CardPreview car={car} onClose={onClose} />}
-        {isEdit && (
+        {car.isEdit && (
           <EditCarForm
             car={car}
             onChangeEdit={onChangeEdit}
@@ -35,6 +40,7 @@ const Card = React.memo(
             editItem={editItem}
             setIsEdit={setIsEdit}
             setEditItem={setEditItem}
+            onSetEdit={onSetEdit}
           />
         )}
         <div className={s.root}>
@@ -65,7 +71,7 @@ const Card = React.memo(
           <div className={s.btnWrapper}>
             <button
               className={clsx(s.editBtn, s.btn)}
-              onClick={() => setIsEdit(true)}
+              onClick={() => onSetEdit(car)}
             >
               <EditIcon />
             </button>

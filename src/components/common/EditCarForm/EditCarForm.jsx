@@ -15,17 +15,17 @@ const EditCarForm = React.memo(
     onDelete,
     editItem,
     setIsEdit,
+    onSetEdit,
     setEditItem,
     onEdit,
   }) => {
-    setEditItem(car);
     return (
       <div className={s.form_container}>
-        <form className={s.form} onSubmit={() => onSubmitEdit()}>
+        <form className={s.form} onSubmit={(e) => onSubmitEdit(e)}>
           <button
             className={clsx(s.closeBtn, s.btn)}
             type="button"
-            onClick={() => setIsEdit(false)}
+            onClick={() => onSetEdit(car)}
           >
             <CloseIcon />
           </button>

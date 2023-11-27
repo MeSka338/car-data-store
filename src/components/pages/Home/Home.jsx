@@ -15,6 +15,7 @@ const Home = ({
   setIsEdit,
   setEditItem,
   editItem,
+  onSetEdit,
   onChangeAdd,
   onSubmitAdd,
 }) => {
@@ -34,6 +35,7 @@ const Home = ({
         onChangeEdit={onChangeEdit}
         onSubmitEdit={onSubmitEdit}
         onDelete={onDelete}
+        onSetEdit={onSetEdit}
       />
     </div>
   );

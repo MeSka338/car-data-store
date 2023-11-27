@@ -1,8 +1,10 @@
+`use client`;
+
 import React, { useCallback, useEffect, useState } from "react";
 
 import Home from "./Home";
 import { useDispatch, useSelector } from "react-redux";
-import { DeleteCars, EditCars, GetCars } from "@/_redux/car/selectors";
+import { DeleteCars, EditCars, GetCars, SetEdit } from "@/_redux/car/selectors";
 const HomeContainer = () => {
   const { cars } = useSelector((store) => store.CarReducer);
   const [search, setSearch] = useState("");
@@ -18,12 +20,20 @@ const HomeContainer = () => {
     setClose((prev) => !prev);
   }, []);
 
+  const handleSetEdit = useCallback(
+    (car) => {
+      dispatch(SetEdit(car));
+      setEditItem(car);
+    },
+    [isEdit]
+  );
+
   const HandleChangeEdit = useCallback(
     (e) => {
       setEditItem((prev) => ({ ...prev, [e.target.name]: e.target.value }));
       console.log(editItem);
 
-      console.log(e.target.name);
+      console.log(e.target.value);
     },
     [editItem]
   );
@@ -77,6 +87,7 @@ const HomeContainer = () => {
       onSubmitAdd={HandleSubmitAdd}
       editItem={editItem}
       setEditItem={setEditItem}
+      onSetEdit={handleSetEdit}
     />
   );
 };
