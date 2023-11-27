@@ -4,7 +4,13 @@ import React, { useCallback, useEffect, useState } from "react";
 
 import Home from "./Home";
 import { useDispatch, useSelector } from "react-redux";
-import { DeleteCars, EditCars, GetCars, SetEdit } from "@/_redux/car/selectors";
+import {
+  AddCars,
+  DeleteCars,
+  EditCars,
+  GetCars,
+  SetEdit,
+} from "@/_redux/car/selectors";
 const HomeContainer = () => {
   const { cars } = useSelector((store) => store.CarReducer);
   const [search, setSearch] = useState("");
@@ -13,6 +19,8 @@ const HomeContainer = () => {
   const [newItem, setNewItem] = useState({});
   const [close, setClose] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
+
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -61,7 +69,7 @@ const HomeContainer = () => {
     (e) => {
       e.preventDefault();
 
-      dispatch(AddCars({ ...newItem, id: Date.now() }));
+      dispatch(AddCars({ ...newItem, id: Date.now(), isEdit: false }));
       setIsFormOpen(false);
     },
     [newItem]
@@ -83,11 +91,13 @@ const HomeContainer = () => {
       onChangeEdit={HandleChangeEdit}
       onSubmitEdit={HandleSubmitEdit}
       onDelete={HandleDelete}
-      onChangeAdd={HandleChangeAdd}
-      onSubmitAdd={HandleSubmitAdd}
       editItem={editItem}
       setEditItem={setEditItem}
       onSetEdit={handleSetEdit}
+      onChangeAdd={HandleChangeAdd}
+      onSubmitAdd={HandleSubmitAdd}
+      isFormOpen={isFormOpen}
+      setIsFormOpen={setIsFormOpen}
     />
   );
 };

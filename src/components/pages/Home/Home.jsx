@@ -18,10 +18,17 @@ const Home = ({
   onSetEdit,
   onChangeAdd,
   onSubmitAdd,
+  isFormOpen,
+  setIsFormOpen,
 }) => {
   return (
     <div className={s.root}>
-      <AddItem />
+      <AddItem
+        onChangeAdd={onChangeAdd}
+        onSubmitAdd={onSubmitAdd}
+        isFormOpen={isFormOpen}
+        setIsFormOpen={setIsFormOpen}
+      />
       <ItemsList
         cars={cars}
         search={search}

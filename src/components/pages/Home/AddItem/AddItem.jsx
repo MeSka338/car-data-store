@@ -5,13 +5,16 @@ import CarForm from "@/components/common/CarForm/CarForm";
 import s from "./AddItem.module.scss";
 import AddIcon from "@/components/icons/Add";
 
-const AddItem = () => {
-  const [isFormOpen, setIsFormOpen] = useState(false);
-
+const AddItem = ({ onChangeAdd, onSubmitAdd, isFormOpen, setIsFormOpen }) => {
   return (
     <div className={s.root}>
       {isFormOpen && (
-        <CarForm isFormOpen={isFormOpen} setIsFormOpen={setIsFormOpen} />
+        <CarForm
+          isFormOpen={isFormOpen}
+          setIsFormOpen={setIsFormOpen}
+          onChangeAdd={onChangeAdd}
+          onSubmitAdd={onSubmitAdd}
+        />
       )}
       <div className={s.titleContainer}>
         <h2 className={s.title}>Добавить машину </h2>

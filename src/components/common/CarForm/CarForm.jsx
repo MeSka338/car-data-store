@@ -7,10 +7,10 @@ import clsx from "clsx";
 import CloseIcon from "@/components/icons/Close";
 
 const CarForm = React.memo(
-  ({ HandleSubmit, HandleChange, isFormOpen, newItem, setIsFormOpen }) => {
+  ({ onChangeAdd, onSubmitAdd, isFormOpen, setIsFormOpen }) => {
     return (
       <div className={s.form_container}>
-        <form className={s.form} onSubmit={HandleSubmit}>
+        <form className={s.form} onSubmit={onSubmitAdd}>
           <button
             className={clsx(s.closeBtn, s.btn)}
             type="button"
@@ -25,7 +25,7 @@ const CarForm = React.memo(
                 className={s.input}
                 name={"name"}
                 required
-                onChange={HandleChange}
+                onChange={onChangeAdd}
               ></input>
             </div>
             <div className={s.formItem}>
@@ -35,7 +35,7 @@ const CarForm = React.memo(
                 id="cars"
                 className={s.input}
                 required
-                onChange={HandleChange}
+                onChange={onChangeAdd}
               >
                 <option value="DEFAULT" disabled selected hidden></option>
                 {body.map((item) => {
@@ -48,7 +48,7 @@ const CarForm = React.memo(
               <input
                 className={s.input}
                 type="number"
-                onChange={HandleChange}
+                onChange={onChangeAdd}
                 name="year"
                 required
                 min={1885}
@@ -62,7 +62,7 @@ const CarForm = React.memo(
                 id="colors"
                 className={s.input}
                 required
-                onChange={HandleChange}
+                onChange={onChangeAdd}
               >
                 <option value="DEFAULT" disabled selected hidden></option>
 
@@ -76,7 +76,7 @@ const CarForm = React.memo(
               <input
                 className={s.input}
                 required
-                onChange={HandleChange}
+                onChange={onChangeAdd}
                 name="price"
               ></input>
             </div>
@@ -85,7 +85,7 @@ const CarForm = React.memo(
               <input
                 className={s.input}
                 required
-                onChange={HandleChange}
+                onChange={onChangeAdd}
                 name="hp"
               ></input>
             </div>
@@ -94,7 +94,7 @@ const CarForm = React.memo(
               <input
                 className={s.input}
                 required
-                onChange={HandleChange}
+                onChange={onChangeAdd}
                 name="eng"
               ></input>
             </div>
@@ -103,7 +103,7 @@ const CarForm = React.memo(
               <input
                 className={s.input}
                 required
-                onChange={HandleChange}
+                onChange={onChangeAdd}
                 name="country"
               ></input>
             </div>
@@ -112,7 +112,7 @@ const CarForm = React.memo(
               <textarea
                 className={s.input}
                 required
-                onChange={HandleChange}
+                onChange={onChangeAdd}
                 name="description"
               ></textarea>
             </div>
