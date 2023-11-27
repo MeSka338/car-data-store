@@ -7,14 +7,10 @@ import Card from "../../../common/Card";
 const ItemsList = ({
   cars,
   search,
-  close,
-  isEdit,
   setSearch,
-  onClose,
   onChangeEdit,
   onSubmitEdit,
   onDelete,
-  setIsEdit,
   setEditItem,
   onSetEdit,
   onPreview,
@@ -49,15 +45,11 @@ const ItemsList = ({
                   key={key}
                   id={key}
                   car={car}
-                  close={close}
-                  isEdit={isEdit}
-                  onClose={onClose}
                   onChangeEdit={onChangeEdit}
                   onSubmitEdit={onSubmitEdit}
                   onDelete={onDelete}
                   editItem={editItem}
                   setEditItem={setEditItem}
-                  setIsEdit={setIsEdit}
                   onSetEdit={onSetEdit}
                   onPreview={onPreview}
                   modelRef={modelRef}

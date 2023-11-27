@@ -17,8 +17,6 @@ const HomeContainer = () => {
   const [editItem, setEditItem] = useState();
 
   const [newItem, setNewItem] = useState({});
-  const [close, setClose] = useState(false);
-  const [isEdit, setIsEdit] = useState(false);
 
   const [isFormOpen, setIsFormOpen] = useState(false);
 
@@ -26,19 +24,12 @@ const HomeContainer = () => {
 
   const dispatch = useDispatch();
 
-  const HnadleClose = useCallback(() => {
-    setClose((prev) => !prev);
+  const handleSetEdit = useCallback((car) => {
+    dispatch(SetEdit(car));
+    setEditItem(car);
   }, []);
 
-  const handleSetEdit = useCallback(
-    (car) => {
-      dispatch(SetEdit(car));
-      setEditItem(car);
-    },
-    [isEdit]
-  );
-
-  const HandleChangeEdit = useCallback(
+  const handleChangeEdit = useCallback(
     (e) => {
       setEditItem((prev) => ({ ...prev, [e.target.name]: e.target.value }));
       console.log(editItem);
@@ -47,27 +38,25 @@ const HomeContainer = () => {
     },
     [editItem]
   );
-  const HandleSubmitEdit = useCallback(
+  const handleSubmitEdit = useCallback(
     (e) => {
       e.preventDefault();
       dispatch(EditCars(editItem));
-      setIsEdit(false);
     },
     [editItem]
   );
 
-  const HandleDelete = useCallback(() => {
+  const handleDelete = useCallback(() => {
     dispatch(DeleteCars(editItem.id));
-    setIsEdit((prev) => !prev);
   }, [editItem]);
 
-  const HandleChangeAdd = useCallback(
+  const handleChangeAdd = useCallback(
     (e) => {
       setNewItem({ ...newItem, [e.target.name]: e.target.value });
     },
     [newItem]
   );
-  const HandleSubmitAdd = useCallback(
+  const handleSubmitAdd = useCallback(
     (e) => {
       e.preventDefault();
 
@@ -109,19 +98,15 @@ const HomeContainer = () => {
     <Home
       cars={cars}
       search={search}
-      close={close}
-      isEdit={isEdit}
       setSearch={setSearch}
-      onClose={HnadleClose}
-      setIsEdit={setIsEdit}
-      onChangeEdit={HandleChangeEdit}
-      onSubmitEdit={HandleSubmitEdit}
-      onDelete={HandleDelete}
+      onChangeEdit={handleChangeEdit}
+      onSubmitEdit={handleSubmitEdit}
+      onDelete={handleDelete}
       editItem={editItem}
       setEditItem={setEditItem}
       onSetEdit={handleSetEdit}
-      onChangeAdd={HandleChangeAdd}
-      onSubmitAdd={HandleSubmitAdd}
+      onChangeAdd={handleChangeAdd}
+      onSubmitAdd={handleSubmitAdd}
       onPreview={handlePreview}
       isFormOpen={isFormOpen}
       setIsFormOpen={setIsFormOpen}

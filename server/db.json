@@ -16,13 +16,14 @@
       "name": "Renault Megane",
       "body": "Универсал",
       "year": "2023",
-      "color": "blue",
+      "color": "red",
       "price": "1 950 000",
       "hp": "160",
       "eng": "1.5",
       "country": "Франция",
       "description": "Стильный и динамичный хэтчбек от Renault.",
-      "id": 1700661899373
+      "id": 1700661899373,
+      "isEdit": false
     }
   ]
 }

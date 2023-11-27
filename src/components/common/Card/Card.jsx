@@ -12,12 +12,10 @@ import EditCarForm from "../EditCarForm";
 const Card = React.memo(
   ({
     car,
-    onClose,
     onChangeEdit,
     onSubmitEdit,
     onDelete,
     editItem,
-    setIsEdit,
     setEditItem,
     onSetEdit,
     modelRef,
@@ -29,7 +27,6 @@ const Card = React.memo(
         {car.isPreview && (
           <CardPreview
             car={car}
-            onClose={onClose}
             modelRef={modelRef}
             modelAnimation={modelAnimation}
             onPreview={onPreview}
@@ -42,7 +39,6 @@ const Card = React.memo(
             onSubmitEdit={onSubmitEdit}
             onDelete={onDelete}
             editItem={editItem}
-            setIsEdit={setIsEdit}
             setEditItem={setEditItem}
             onSetEdit={onSetEdit}
           />
