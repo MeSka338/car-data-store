@@ -8,15 +8,10 @@ import s from "./Card.module.scss";
 import EditIcon from "@/components/icons/Edit";
 import EyeIcon from "@/components/icons/Eye";
 import EditCarForm from "../EditCarForm";
-import { useDispatch } from "react-redux";
-import { SetEdit, SetPreview } from "@/_redux/car/selectors";
 
 const Card = React.memo(
   ({
-    id,
     car,
-    close,
-    isEdit,
     onClose,
     onChangeEdit,
     onSubmitEdit,

@@ -6,7 +6,7 @@ import s from "./CardPreview.module.scss";
 import CloseIcon from "@/components/icons/Close";
 
 const CardPreview = React.memo(
-  ({ car, onClose, modelAnimation, modelRef, onPreview }) => {
+  ({ car, modelAnimation, modelRef, onPreview }) => {
     return (
       <div className={s.preview}>
         <div className={s.previewWindow}>

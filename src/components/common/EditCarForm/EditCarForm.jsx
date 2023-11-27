@@ -7,18 +7,7 @@ import clsx from "clsx";
 import CloseIcon from "@/components/icons/Close";
 
 const EditCarForm = React.memo(
-  ({
-    car,
-    myEdit,
-    onChangeEdit,
-    onSubmitEdit,
-    onDelete,
-    editItem,
-    setIsEdit,
-    onSetEdit,
-    setEditItem,
-    onEdit,
-  }) => {
+  ({ car, onChangeEdit, onSubmitEdit, onDelete, editItem, onSetEdit }) => {
     return (
       <div className={s.form_container}>
         <form className={s.form} onSubmit={(e) => onSubmitEdit(e)}>

@@ -1,13 +1,6 @@
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import React, { useEffect } from "react";
 import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
-import gsap from "gsap";
 
 export const Model = React.memo(
   ({ modelAnimation, modelRef, animation, carColor }) => {
