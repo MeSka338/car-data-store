@@ -8,35 +8,15 @@ import gsap from "gsap";
 import CloseIcon from "@/components/icons/Close";
 import Scene from "@/components/common/Scene";
 
-const Car = (props) => {
-  const { car, loaded, descriptionRef } = props;
-
-  const handleClick = useCallback(() => {
-    gsap.fromTo(
-      descriptionRef.current,
-      {
-        x: 1000,
-      },
-      {
-        opacity: 1,
-        x: 0,
-      }
-    );
-  }, []);
-
-  const handleClose = useCallback(() => {
-    gsap.fromTo(
-      descriptionRef.current,
-      {
-        x: 0,
-      },
-      {
-        opacity: 0,
-        x: 1000,
-      }
-    );
-  }, []);
-
+const Car = ({
+  car,
+  loaded,
+  descriptionRef,
+  onClick,
+  onClose,
+  modelAnimation,
+  modelRef,
+}) => {
   if (loaded === false) {
     return <div>loading</div>;
   }
@@ -62,12 +42,12 @@ const Car = (props) => {
             <>
               <div className={s.header}>
                 <Link href={"/"}> HOME</Link>
-                <button onClick={handleClick}>INFO</button>
+                <button onClick={onClick}>INFO</button>
               </div>
               <h1 className={s.title}>{car.name}</h1>
               <div className={s.description}>
                 <div className={s.descriptionWrapper} ref={descriptionRef}>
-                  <div className={s.close} onClick={handleClose}>
+                  <div className={s.close} onClick={onClose}>
                     <CloseIcon />
                   </div>
                   <div className={s.descriptionItem}>

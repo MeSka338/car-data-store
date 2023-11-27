@@ -4,6 +4,7 @@ import {
   ADD_CARS,
   EDIT_CARS,
   SET_EDIT,
+  SET_PREVIEW,
   DELETE_CARS,
 } from "./actions";
 
@@ -27,6 +28,15 @@ const CarReducer = (state = { cars: [], loaded: false }, { type, payload }) => {
           car.id === payload.id
             ? { ...payload, isEdit: !payload.isEdit }
             : { ...car, isEdit: false }
+        ),
+      };
+    case SET_PREVIEW:
+      return {
+        ...state,
+        cars: state.cars.map((car) =>
+          car.id === payload.id
+            ? { ...payload, isPreview: !payload.isPreview }
+            : { ...car, isPreview: false }
         ),
       };
 

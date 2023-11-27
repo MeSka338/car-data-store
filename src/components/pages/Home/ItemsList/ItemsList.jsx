@@ -17,8 +17,11 @@ const ItemsList = ({
   setIsEdit,
   setEditItem,
   onSetEdit,
-
+  onPreview,
   editItem,
+
+  modelRef,
+  modelAnimation,
 }) => {
   return (
     <div className={s.rootWrapper}>
@@ -56,6 +59,9 @@ const ItemsList = ({
                   setEditItem={setEditItem}
                   setIsEdit={setIsEdit}
                   onSetEdit={onSetEdit}
+                  onPreview={onPreview}
+                  modelRef={modelRef}
+                  modelAnimation={modelAnimation}
                 />
               ))}
           </div>

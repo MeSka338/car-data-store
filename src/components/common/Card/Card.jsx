@@ -9,7 +9,7 @@ import EditIcon from "@/components/icons/Edit";
 import EyeIcon from "@/components/icons/Eye";
 import EditCarForm from "../EditCarForm";
 import { useDispatch } from "react-redux";
-import { SetEdit } from "@/_redux/car/selectors";
+import { SetEdit, SetPreview } from "@/_redux/car/selectors";
 
 const Card = React.memo(
   ({
@@ -25,12 +25,21 @@ const Card = React.memo(
     setIsEdit,
     setEditItem,
     onSetEdit,
+    modelRef,
+    modelAnimation,
+    onPreview,
   }) => {
-    // const dispatch = useDispatch();
-
     return (
       <>
-        {close && <CardPreview car={car} onClose={onClose} />}
+        {car.isPreview && (
+          <CardPreview
+            car={car}
+            onClose={onClose}
+            modelRef={modelRef}
+            modelAnimation={modelAnimation}
+            onPreview={onPreview}
+          />
+        )}
         {car.isEdit && (
           <EditCarForm
             car={car}
@@ -48,7 +57,7 @@ const Card = React.memo(
 
           <h3 className={s.title}>{car.name}</h3>
           <div className={s.sceneWrapper}>
-            <Scene color={car.color} orbit={false} />
+            <Scene color={car.color} />
           </div>
           <div className={s.description}>
             <div className={s.text}>
@@ -75,7 +84,10 @@ const Card = React.memo(
             >
               <EditIcon />
             </button>
-            <button className={clsx(s.showBtn, s.btn)} onClick={onClose}>
+            <button
+              className={clsx(s.showBtn, s.btn)}
+              onClick={() => onPreview(car)}
+            >
               <EyeIcon />
             </button>
           </div>

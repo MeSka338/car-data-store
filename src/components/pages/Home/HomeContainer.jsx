@@ -1,6 +1,4 @@
-`use client`;
-
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
 import Home from "./Home";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,7 +8,9 @@ import {
   EditCars,
   GetCars,
   SetEdit,
+  SetPreview,
 } from "@/_redux/car/selectors";
+import gsap from "gsap";
 const HomeContainer = () => {
   const { cars } = useSelector((store) => store.CarReducer);
   const [search, setSearch] = useState("");
@@ -21,6 +21,8 @@ const HomeContainer = () => {
   const [isEdit, setIsEdit] = useState(false);
 
   const [isFormOpen, setIsFormOpen] = useState(false);
+
+  const modelRef = useRef();
 
   const dispatch = useDispatch();
 
@@ -69,11 +71,35 @@ const HomeContainer = () => {
     (e) => {
       e.preventDefault();
 
-      dispatch(AddCars({ ...newItem, id: Date.now(), isEdit: false }));
+      dispatch(AddCars({ ...newItem, id: Date.now() }));
       setIsFormOpen(false);
     },
     [newItem]
   );
+
+  const handlePreview = (car) => {
+    dispatch(SetPreview(car));
+  };
+
+  const modelAnimation = useCallback(() => {
+    gsap.from(modelRef.current.rotation, {
+      ease: "power4.out",
+      duration: 4,
+      y: 2 * Math.PI,
+    });
+    gsap.from(modelRef.current.position, {
+      duration: 3,
+      y: -3,
+      ease: "power4.out",
+    });
+    gsap.to(modelRef.current.scale, {
+      duration: 3,
+      x: 2.5,
+      y: 2.5,
+      z: 2.5,
+      ease: "power4.out",
+    });
+  }, []);
   useEffect(() => {
     dispatch(GetCars());
     console.log(editItem);
@@ -96,8 +122,11 @@ const HomeContainer = () => {
       onSetEdit={handleSetEdit}
       onChangeAdd={HandleChangeAdd}
       onSubmitAdd={HandleSubmitAdd}
+      onPreview={handlePreview}
       isFormOpen={isFormOpen}
       setIsFormOpen={setIsFormOpen}
+      modelRef={modelRef}
+      modelAnimation={modelAnimation}
     />
   );
 };

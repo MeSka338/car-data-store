@@ -20,6 +20,9 @@ const Home = ({
   onSubmitAdd,
   isFormOpen,
   setIsFormOpen,
+  modelRef,
+  modelAnimation,
+  onPreview,
 }) => {
   return (
     <div className={s.root}>
@@ -43,6 +46,9 @@ const Home = ({
         onSubmitEdit={onSubmitEdit}
         onDelete={onDelete}
         onSetEdit={onSetEdit}
+        onPreview={onPreview}
+        modelRef={modelRef}
+        modelAnimation={modelAnimation}
       />
     </div>
   );

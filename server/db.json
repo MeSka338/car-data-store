@@ -10,7 +10,6 @@
       "eng": "1.6",
       "country": "Германия",
       "description": "Надежный и экономичный хэтчбек от Volkswagen.",
-      "isEdit": false,
       "id": 1700658663869
     },
     {
@@ -23,21 +22,7 @@
       "eng": "1.5",
       "country": "Франция",
       "description": "Стильный и динамичный хэтчбек от Renault.",
-      "isEdit": false,
       "id": 1700661899373
-    },
-    {
-      "name": "Renault logan",
-      "body": "Лимузин",
-      "year": "1886",
-      "color": "black",
-      "price": "300000",
-      "hp": "200",
-      "eng": "1.6",
-      "country": "франция",
-      "description": "fdfdsfds",
-      "id": 1701116755713,
-      "isEdit": false
     }
   ]
 }
