@@ -16,7 +16,7 @@
       "name": "Renault Megane",
       "body": "Универсал",
       "year": "2023",
-      "color": "red",
+      "color": "blue",
       "price": "1 950 000",
       "hp": "160",
       "eng": "1.5",
@@ -24,6 +24,18 @@
       "description": "Стильный и динамичный хэтчбек от Renault.",
       "id": 1700661899373,
       "isEdit": false
+    },
+    {
+      "name": "Renault logan",
+      "body": "Лимузин",
+      "year": "1885",
+      "color": "gold",
+      "price": "300000",
+      "hp": "200",
+      "eng": "1.6",
+      "country": "франция",
+      "description": "fdsfds",
+      "id": 1701256453092
     }
   ]
 }

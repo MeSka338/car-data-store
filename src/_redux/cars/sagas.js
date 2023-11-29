@@ -7,7 +7,7 @@ import {
   take,
 } from "@redux-saga/core/effects";
 
-import { SetCars } from "./selectors";
+import { SetCars } from "./dispatchFunc";
 import {
   getCarsApi,
   addCarsApi,

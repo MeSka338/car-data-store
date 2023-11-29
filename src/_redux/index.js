@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import CarReducer from "./car/reducer";
+import Cars from "./cars/reducer";
 
 export const reduser = combineReducers({
-  CarReducer,
+  Cars,
 });

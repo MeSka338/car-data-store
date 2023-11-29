@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useCallback, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { GetCars } from "@/_redux/car/selectors";
+import { carsSelector, loadedSelector } from "@/_redux/cars/selectors";
+import { GetCars } from "@/_redux/cars/dispatchFunc";
 import { useRouter } from "next/router";
 import gsap from "gsap";
 
@@ -8,7 +9,9 @@ import Car from "./Car";
 
 const CarContainer = () => {
   const index = useRouter().query.index;
-  const { cars, loaded } = useSelector((store) => store.CarReducer);
+
+  const cars = useSelector(carsSelector);
+  const loaded = useSelector(loadedSelector);
 
   const descriptionRef = useRef();
   let car = useMemo(

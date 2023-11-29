@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 
 import Home from "./Home";
 import { useDispatch, useSelector } from "react-redux";
+import { carsSelector } from "@/_redux/cars/selectors";
 import {
   AddCars,
   DeleteCars,
@@ -9,10 +10,11 @@ import {
   GetCars,
   SetEdit,
   SetPreview,
-} from "@/_redux/car/selectors";
+} from "@/_redux/cars/dispatchFunc";
 import gsap from "gsap";
 const HomeContainer = () => {
-  const { cars } = useSelector((store) => store.CarReducer);
+  // const state = useSelector((store) => store.Cars);
+  const cars = useSelector(carsSelector);
   const [search, setSearch] = useState("");
   const [editItem, setEditItem] = useState();
 
@@ -32,9 +34,6 @@ const HomeContainer = () => {
   const handleChangeEdit = useCallback(
     (e) => {
       setEditItem((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-      console.log(editItem);
-
-      console.log(e.target.value);
     },
     [editItem]
   );
@@ -91,7 +90,6 @@ const HomeContainer = () => {
   }, []);
   useEffect(() => {
     dispatch(GetCars());
-    console.log(editItem);
   }, []);
 
   return (
