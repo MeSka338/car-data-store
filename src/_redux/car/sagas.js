@@ -29,11 +29,6 @@ export function* editCarWorker({ payload }) {
   yield call(editCarsApi, payload);
 }
 
-export function* setEditWorker({ payload }) {
-  console.log("sagaEdit");
-  // yield call(editCarsApi, payload);
-}
-
 export function* deleteCarWorker({ payload }) {
   yield call(deleteCarsApi, payload);
 }
