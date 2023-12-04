@@ -8,7 +8,7 @@ import {
   DELETE_CARS,
 } from "./actions";
 
-const Cars = (state = { cars: [], loaded: false }, { type, payload }) => {
+const CarReducer = (state = { cars: [], loaded: false }, { type, payload }) => {
   switch (type) {
     case ADD_CARS:
       return {
@@ -60,4 +60,4 @@ const Cars = (state = { cars: [], loaded: false }, { type, payload }) => {
   }
 };
 
-export default Cars;
+export default CarReducer;
