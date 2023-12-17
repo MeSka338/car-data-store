@@ -1,0 +1,31 @@
+export const body = [
+  "Седан",
+  "Лимузин",
+  "Пикап",
+  "Хэтчбек",
+  "Универсал",
+  "Лифтбек",
+  "Минивэн",
+  "Купе",
+  "Кабриолет",
+  "Лифтбек",
+  "Родстер",
+  "Тарга",
+];
+
+export const colors = [
+  "black",
+  "silver",
+  "white",
+  "grey",
+  "blue",
+  "red",
+  "green",
+  "brown",
+  "lightblue",
+  "gold",
+  "yellow",
+  "purple",
+  "orange",
+  "pink",
+];

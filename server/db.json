@@ -1,0 +1,41 @@
+{
+  "cars": [
+    {
+      "name": "Volkswagen Golf",
+      "body": "Хэтчбек",
+      "year": "2023",
+      "color": "grey",
+      "price": "1 900 000",
+      "hp": "150",
+      "eng": "1.6",
+      "country": "Германия",
+      "description": "Надежный и экономичный хэтчбек от Volkswagen.",
+      "id": 1701721692132
+    },
+    {
+      "name": "Renault Megane",
+      "body": "Хэтчбек",
+      "year": "2023",
+      "color": "green",
+      "price": "1 950 000",
+      "hp": "160",
+      "eng": "1.5",
+      "country": "Франция",
+      "description": "Стильный и динамичный хэтчбек от Renault.",
+
+      "id": 1701721704622
+    },
+    {
+      "name": "Mazda3",
+      "body": "Седан",
+      "year": "2022",
+      "color": "yellow",
+      "price": "2 120 000",
+      "hp": "180",
+      "eng": "2.0",
+      "country": "Япония",
+      "description": "Энергичный седан от Mazda.",
+      "id": 1701721713892
+    }
+  ]
+}

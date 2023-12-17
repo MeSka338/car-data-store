@@ -1,0 +1,22 @@
+@import "@/styles/commonElements.scss";
+@import "@/styles/colors.scss";
+.root {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.titleContainer {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 30px;
+}
+.addBtn {
+  background: $DarkBlue2;
+
+  cursor: pointer;
+  padding: 5px;
+}
